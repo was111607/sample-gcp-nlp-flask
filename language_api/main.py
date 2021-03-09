@@ -23,7 +23,7 @@ from google.cloud import datastore
 from google.cloud import language_v1  as language
 
 
-CLOUD_STORAGE_BUCKET = os.environ.get("CLOUD_STORAGE_BUCKET")
+# CLOUD_STORAGE_BUCKET = os.environ.get("CLOUD_STORAGE_BUCKET")
 
 
 app = Flask(__name__)
