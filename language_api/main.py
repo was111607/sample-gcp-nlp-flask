@@ -92,7 +92,14 @@ def upload_text():
 
 
     # Analyse sentiment using Sentiment API call
-    sentiment = analyze_text_sentiment(text)
+    sentiment = analyze_text_sentiment(text)[0].get('sentiment score')
+    overall_sentiment = 'unknown'
+    if sentiment > 0:
+        overall_sentiment = 'positive'
+    if sentiment < 0:
+        overall_sentiment = 'negative'
+    if sentiment == 0:
+        overall_sentiment = 'neutral'
 
     # Create a Cloud Datastore client.
     datastore_client = datastore.Client()
