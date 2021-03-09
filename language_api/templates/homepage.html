@@ -11,10 +11,9 @@ Storage, Datastore, and the Natural Language API.</p>
       Upload Text: <input type="text" name="text"><br>
       <input type="submit" name="submit" value="Submit">
     </form>
-    <!-- {% for image_entity in image_entities %}
-      <img src="{{image_entity['image_public_url']}}" width=200 height=200>
-      <p>{{image_entity['blob_name']}} was uploaded {{image_entity['timestamp']}}.</p>
-      <p>Joy Likelihood for Face: {{image_entity['joy']}}</p> -->
+    {% for text_entity in text_entities %}
+      <p>Uploaded {{text_entity['timestamp']}.</p>
+      <p>Overall Sentiment: {{text_entity['sentiment']}}</p>
     {% endfor %}
   </body>
 </html> 

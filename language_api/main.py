@@ -20,7 +20,7 @@ from flask import Flask, redirect, render_template, request
 
 from google.cloud import datastore
 # from google.cloud import storage
-from google.cloud import language_v1
+from google.cloud import language_v1  as language
 
 
 CLOUD_STORAGE_BUCKET = os.environ.get("CLOUD_STORAGE_BUCKET")
@@ -36,11 +36,11 @@ def homepage():
 
     # # Use the Cloud Datastore client to fetch information from Datastore about
     # # each photo.
-    # query = datastore_client.query(kind="Faces")
-    # image_entities = list(query.fetch())
+    query = datastore_client.query(kind="Sentences")
+    text_entities = list(query.fetch())
 
     # # Return a Jinja2 HTML template and pass in image_entities as a parameter.
-    # return render_template("homepage.html", image_entities=image_entities)
+    return render_template("homepage.html", text_entities=text_entities)
 
 
 @app.route("/upload_text", methods=["GET", "POST"])
@@ -50,43 +50,49 @@ def upload_text():
     # return processed_text
     
     # Create a Cloud Storage client.
-    storage_client = storage.Client()
+    # storage_client = storage.Client()
 
     # Get the bucket that the file will be uploaded to.
-    bucket = storage_client.get_bucket(CLOUD_STORAGE_BUCKET)
+    # bucket = storage_client.get_bucket(CLOUD_STORAGE_BUCKET)
 
     # Create a new blob and upload the file's content.
-    blob = bucket.blob(photo.filename)
-    blob.upload_from_string(photo.read(), content_type=photo.content_type)
+    # blob = bucket.blob(photo.filename)
+    # blob.upload_from_string(photo.read(), content_type=photo.content_type)
 
     # Make the blob publicly viewable.
-    blob.make_public()
+    # blob.make_public()
 
     # Create a Cloud Vision client.
-    vision_client = vision.ImageAnnotatorClient()
+    # vision_client = vision.ImageAnnotatorClient()
+
+
 
     # Use the Cloud Vision client to detect a face for our image.
-    source_uri = "gs://{}/{}".format(CLOUD_STORAGE_BUCKET, blob.name)
-    image = vision.Image(source=vision.ImageSource(gcs_image_uri=source_uri))
-    faces = vision_client.face_detection(image=image).face_annotations
+    # source_uri = "gs://{}/{}".format(CLOUD_STORAGE_BUCKET, blob.name)
+    # image = vision.Image(source=vision.ImageSource(gcs_image_uri=source_uri))
+    # faces = vision_client.face_detection(image=image).face_annotations
 
     # If a face is detected, save to Datastore the likelihood that the face
     # displays 'joy,' as determined by Google's Machine Learning algorithm.
-    if len(faces) > 0:
-        face = faces[0]
+    # if len(faces) > 0:
+    #     face = faces[0]
 
         # Convert the likelihood string.
-        likelihoods = [
-            "Unknown",
-            "Very Unlikely",
-            "Unlikely",
-            "Possible",
-            "Likely",
-            "Very Likely",
-        ]
-        face_joy = likelihoods[face.joy_likelihood]
-    else:
-        face_joy = "Unknown"
+    #     likelihoods = [
+    #         "Unknown",
+    #         "Very Unlikely",
+    #         "Unlikely",
+    #         "Possible",
+    #         "Likely",
+    #         "Very Likely",
+    #     ]
+    #     face_joy = likelihoods[face.joy_likelihood]
+    # else:
+    #     face_joy = "Unknown"
+
+
+    # Analyse sentiment using Sentiment API call
+    sentiment = analyze_text_sentiment(text)
 
     # Create a Cloud Datastore client.
     datastore_client = datastore.Client()
@@ -95,21 +101,22 @@ def upload_text():
     current_datetime = datetime.now()
 
     # The kind for the new entity.
-    kind = "Faces"
+    kind = "Sentences"
 
     # The name/ID for the new entity.
-    name = blob.name
+    # name = blob.name
 
     # Create the Cloud Datastore key for the new entity.
-    key = datastore_client.key(kind, name)
+    key = datastore_client.key(kind)
 
     # Construct the new entity using the key. Set dictionary values for entity
     # keys blob_name, storage_public_url, timestamp, and joy.
     entity = datastore.Entity(key)
-    entity["blob_name"] = blob.name
-    entity["image_public_url"] = blob.public_url
+    # entity["blob_name"] = blob.name
+    # entity["image_public_url"] = blob.public_url
     entity["timestamp"] = current_datetime
-    entity["joy"] = face_joy
+    entity["sentiment"] = sentiment
+    # entity["joy"] = face_joy
 
     # Save the new entity to Datastore.
     datastore_client.put(entity)
@@ -130,6 +137,31 @@ def server_error(e):
         ),
         500,
     )
+def analyze_text_sentiment(text):
+    client = language.LanguageServiceClient()
+    document = language.Document(content=text, type_=language.Document.Type.PLAIN_TEXT)
+
+    response = client.analyze_sentiment(document=document)
+
+    sentiment = response.document_sentiment
+    results = dict(
+        text=text,
+        score=f"{sentiment.score:.1%}",
+        magnitude=f"{sentiment.magnitude:.1%}",
+    )
+    for k, v in results.items():
+        print(f"{k:10}: {v}")
+
+    # Get sentiment for all sentences in the document
+    sentence_sentiment = []
+    for sentence in response.sentences:
+        item={}
+        item["text"]=sentence.text.content
+        item["sentiment score"]=sentence.sentiment.score
+        item["sentiment magnitude"]=sentence.sentiment.magnitude
+        sentence_sentiment.append(item)
+
+    return sentence_sentiment
 
 
 if __name__ == "__main__":
