@@ -19,8 +19,8 @@ import os
 from flask import Flask, redirect, render_template, request
 
 from google.cloud import datastore
-from google.cloud import storage
-from google.cloud import vision
+# from google.cloud import storage
+from google.cloud import language_v1
 
 
 CLOUD_STORAGE_BUCKET = os.environ.get("CLOUD_STORAGE_BUCKET")
@@ -34,19 +34,21 @@ def homepage():
     # Create a Cloud Datastore client.
     datastore_client = datastore.Client()
 
-    # Use the Cloud Datastore client to fetch information from Datastore about
-    # each photo.
-    query = datastore_client.query(kind="Faces")
-    image_entities = list(query.fetch())
+    # # Use the Cloud Datastore client to fetch information from Datastore about
+    # # each photo.
+    # query = datastore_client.query(kind="Faces")
+    # image_entities = list(query.fetch())
 
-    # Return a Jinja2 HTML template and pass in image_entities as a parameter.
-    return render_template("homepage.html", image_entities=image_entities)
+    # # Return a Jinja2 HTML template and pass in image_entities as a parameter.
+    # return render_template("homepage.html", image_entities=image_entities)
 
 
-@app.route("/upload_photo", methods=["GET", "POST"])
-def upload_photo():
-    photo = request.files["file"]
-
+@app.route("/upload_text", methods=["GET", "POST"])
+def upload_text():
+    text = request.form["text"]
+    # processed_text = text.upper()
+    # return processed_text
+    
     # Create a Cloud Storage client.
     storage_client = storage.Client()
 
