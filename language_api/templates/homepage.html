@@ -12,7 +12,7 @@ Storage, Datastore, and the Natural Language API.</p>
       <input type="submit" name="submit" value="Submit">
     </form>
     {% for text_entity in text_entities %}
-      <p>Uploaded {{text_entity['timestamp']}.</p>
+      <p>Uploaded {{text_entity['timestamp']}}.</p>
       <p>Overall Sentiment: {{text_entity['sentiment']}}</p>
     {% endfor %}
   </body>
