@@ -43,7 +43,7 @@ def homepage():
     return render_template("homepage.html", text_entities=text_entities)
 
 
-@app.route("/upload_text", methods=["GET", "POST"])
+@app.route("/upload", methods=["GET", "POST"])
 def upload_text():
     text = request.form["text"]
     # processed_text = text.upper()
@@ -114,15 +114,15 @@ def upload_text():
     # name = blob.name
 
     # Create the Cloud Datastore key for the new entity.
-    key = datastore_client.key(kind)
+    key = datastore_client.key(kind, text)
 
     # Construct the new entity using the key. Set dictionary values for entity
     # keys blob_name, storage_public_url, timestamp, and joy.
     entity = datastore.Entity(key)
     # entity["blob_name"] = blob.name
-    # entity["image_public_url"] = blob.public_url
+    entity["text"] = text
     entity["timestamp"] = current_datetime
-    entity["sentiment"] = sentiment
+    entity["sentiment"] = overall_sentiment
     # entity["joy"] = face_joy
 
     # Save the new entity to Datastore.
