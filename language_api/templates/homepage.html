@@ -11,7 +11,7 @@
       <input type="submit" name="submit" value="Submit">
     </form>
     {% for text_entity in text_entities %}
-      <p>Text: {{text_entity['text]}}</p>
+      <p>Text: {{text_entity['text']}}</p>
       <p>Uploaded: {{text_entity['timestamp']}}</p>
       <p>Overall Sentiment: {{text_entity['sentiment']}}</p>
     {% endfor %}
