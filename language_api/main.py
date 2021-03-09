@@ -20,7 +20,7 @@ from flask import Flask, redirect, render_template, request
 
 from google.cloud import datastore
 # from google.cloud import storage
-from google.cloud import language_v1  as language
+from google.cloud import language_v1 as language
 
 
 # CLOUD_STORAGE_BUCKET = os.environ.get("CLOUD_STORAGE_BUCKET")
@@ -114,7 +114,7 @@ def upload_text():
     # name = blob.name
 
     # Create the Cloud Datastore key for the new entity.
-    key = datastore_client.key(kind, text)
+    key = datastore_client.key(kind, 'sample_task')
 
     # Construct the new entity using the key. Set dictionary values for entity
     # keys blob_name, storage_public_url, timestamp, and joy.
