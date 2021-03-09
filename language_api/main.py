@@ -37,8 +37,8 @@ def homepage():
     # # Use the Cloud Datastore client to fetch information from Datastore about
     # # each photo.
     query = datastore_client.query(kind="Sentences")
-    # text_entities = list(query.fetch())
-    text_entities = []
+    text_entities = list(query.fetch())
+    # text_entities = []
 
     # # Return a Jinja2 HTML template and pass in image_entities as a parameter.
     return render_template("homepage.html", text_entities=text_entities)
