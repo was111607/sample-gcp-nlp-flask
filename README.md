@@ -143,5 +143,9 @@ Once the application starts, click on the Web Preview icon in the Cloud Shell to
 ## Example App Run
 
 The app is hosted using flask. An example solution could involve inputing text and outputing the syntax analysis with either 'positive' or 'negative' outcome.
-![example_flask] (https://ibb.co/bLGHhR4)
+
+[![Open Flask App][flask_img]][flask_link]
+
+[flask_img]: https://ibb.co/bLGHhR4
+[flask_link]: https://nlp-for-gee.nw.r.appspot.com
 
