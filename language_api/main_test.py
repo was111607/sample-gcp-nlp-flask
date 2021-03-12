@@ -22,12 +22,12 @@ def test_index(app):
     assert r.status_code == 200
 
 
-def test_upload_photo(app):
+def test_upload_text(app):
 
     @backoff.on_exception(backoff.expo, GatewayTimeout, max_time=120)
     def run_sample():
         return app.post(
-            '/upload_text',
+            '/upload',
             data={
                 'text': 'Test statement'
             }
