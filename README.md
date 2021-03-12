@@ -143,3 +143,5 @@ Once the application starts, click on the Web Preview icon in the Cloud Shell to
 ## Example App Run
 
 The app is hosted using flask. An example solution could involve inputing text and outputing the syntax analysis with either 'positive' or 'negative' outcome.
+![example_flask] (https://ibb.co/bLGHhR4)
+
