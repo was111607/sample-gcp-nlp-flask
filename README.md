@@ -146,6 +146,6 @@ The app is hosted using flask. An example solution could involve inputing text a
 
 [![Open Flask App][flask_img]][flask_link]
 
-[flask_img]: https://ibb.co/bLGHhR4
+[flask_img]: https://i.ibb.co/S0ZQT7k/Screenshot-2021-03-10-at-16-27-27.png
 [flask_link]: https://nlp-for-gee.nw.r.appspot.com
 
