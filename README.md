@@ -43,9 +43,28 @@ In the Cloud Console, in the top right toolbar, click the Activate Cloud Shell b
 [shell_img]: https://cdn.qwiklabs.com/vdY5e%2Fan9ZGXw5a%2FZMb1agpXhRGozsOadHURcR8thAQ%3D
 
 
+## Launch AI Platform Notebooks 
+
+Click on the Navigation Menu and navigate to AI Platform, then to Notebooks.
+
+[![Open AI Notebooks][notebook_img]][notebook_link]
+
+[notebook_img]: https://cdn.qwiklabs.com/fnUEPKKDGG4Xw1nbWJRpVfg02LTmJLOrel2Ny42JQVk%3D
+[notebook_link]: https://console.cloud.google.com/ai-platform/notebooks/list
+
+On the Notebook instances page, click New Instance. Select the Python 3 version
+
+Click Open JupyterLab. A JupyterLab window will open in a new tab.
+
+[![Open Jupyter Notebooks][jupyter_img]][jupyter_link]
+
+[jupyter_img]: https://cdn.qwiklabs.com/fowDLNZLw1WB1zkF9BBSwzNvjBnZyducp45ui%2FBkXTg%3D
+[jupyter_link]: https://console.cloud.google.com/ai-platform/notebooks/list
+
+
 ## Getting the sample code
 
-Run the following command to clone the Github repository:
+In Cloud Shell Run the following command to clone the Github repository:
 
     git clone https://github.com/Jiaxen/sample-gcp-nlp-flask.git
 
