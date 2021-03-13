@@ -93,7 +93,11 @@ When you are ready to leave your virtual environment:
     
 ## Running tests
 
-To run tests, you can run 
+To run tests, install the requirements for your test
+    
+    pip install -r requirements-test.txt
+
+Then run pytest by doing  
     
     python -m pytest
 
