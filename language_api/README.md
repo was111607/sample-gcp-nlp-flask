@@ -3,9 +3,9 @@
 [![Open in Cloud Shell][shell_img]][shell_link]
 
 [shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
-[shell_link]: https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/GoogleCloudPlatform/python-docs-samples&page=editor&open_in_editor=codelabs/flex_and_vision/README.md
+[shell_link]: https://console.cloud.google.com/cloudshell/open
 
-This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language), [Google Cloud Storage](https://cloud.google.com/storage/), and [Google Cloud Datastore](https://cloud.google.com/datastore/) on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
+This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
 
 ## Setup
 
@@ -35,35 +35,34 @@ with your project ID:
 
 Run the following command to clone the Github repository:
 
-    git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+    git clone https://github.com/Jiaxen/sample-gcp-nlp-flask.git
 
 Change directory to the sample code location:
 
-    cd python-docs-samples/codelabs/flex_and_vision
+    cd sample-gcp-nlp-flask/language-api
 
 ## Authentication
 
-Enable the APIs:
+Enable the APIs: (You can also do these through Navigation Menu -> APIs & Services)
 
-    gcloud services enable vision.googleapis.com
-    gcloud services enable storage-component.googleapis.com
+    gcloud services enable language.googleapis.com
     gcloud services enable datastore.googleapis.com
 
 Create a Service Account to access the Google Cloud APIs when testing locally:
 
-    gcloud iam service-accounts create hackathon \
-    --display-name "My Hackathon Service Account"
+    gcloud iam service-accounts create qwiklab \
+    --display-name "My Service Account"
 
 Give your newly created Service Account appropriate permissions:
 
     gcloud projects add-iam-policy-binding ${PROJECT_ID} \
-    --member serviceAccount:hackathon@${PROJECT_ID}.iam.gserviceaccount.com \
+    --member serviceAccount:example@${PROJECT_ID}.iam.gserviceaccount.com \
     --role roles/owner
 
 After creating your Service Account, create a Service Account key:
 
     gcloud iam service-accounts keys create ~/key.json --iam-account \
-    hackathon@${PROJECT_ID}.iam.gserviceaccount.com
+    example@${PROJECT_ID}.iam.gserviceaccount.com
 
 Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to point to where
 you just put your Service Account key:
@@ -78,14 +77,8 @@ Create a virtual environment and install dependencies:
     source env/bin/activate
     pip install -r requirements.txt
 
-Create a Cloud Storage bucket. It is recommended that you name it the same as
-your project ID:
-
-    gsutil mb gs://${PROJECT_ID}
-
-Set the environment variable `CLOUD_STORAGE_BUCKET`:
-
-    export CLOUD_STORAGE_BUCKET=${PROJECT_ID}
+Keep in mind to do the key creation and virtual environment set up steps above in the same directory (see these files being created with the ls command). This ensures your virtual environment can sue the service account privileges.
+Also, if you have to restart (re-activate) your virtual environment, keep in mind to do it from this directory where you have created the env, or it wont work.
 
 Start your application locally:
 
@@ -97,13 +90,16 @@ on your command line when you are finished.
 When you are ready to leave your virtual environment:
 
     deactivate
+    
+## Running tests
+
+To run tests, you can run 
+    
+    python -m pytest
 
 ## Deploying to App Engine
 
-Open `app.yaml` and replace <your-cloud-storage-bucket> with the name of your
-Cloud Storage bucket.
-
-Deploy your application to App Engine using `gcloud`. Please note that this may
+Deploy your application to App Engine with the following command. Please note that this may
 take several minutes.
 
     gcloud app deploy
