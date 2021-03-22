@@ -39,7 +39,7 @@ Run the following command to clone the Github repository:
 
 Change directory to the sample code location:
 
-    cd sample-gcp-nlp-flask/language-api
+    cd sample-gcp-nlp-flask/language_api
 
 ## Authentication
 
