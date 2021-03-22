@@ -16,7 +16,7 @@ Open the Cloud Shell (top right of console, or click the following button)
 [![Cloud Shell][shell_img]][shell_link]
          
 [shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
-[shell_link]: https://console.cloud.google.com/cloudshell/open
+[shell_link]: https://console.cloud.google.com/home/dashboard?cloudshell=true
 
 
 
