@@ -17,10 +17,9 @@ Open the Cloud Shell (top right of console, or click the following button)
 [shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
 [shell_link]: https://console.cloud.google.com/home/dashboard?cloudshell=true
 
-Set an environment variable for your project ID, replacing `[YOUR_PROJECT_ID]`
-with your project ID:
+Set an environment variable for your project ID:
 
-    export PROJECT_ID=[YOUR_PROJECT_ID]
+    export PROJECT_ID=$(gcloud config get-value core/project)
 
 Enable the Cloud natural language API: (You can also do these through Navigation Menu -> APIs & Services)
 

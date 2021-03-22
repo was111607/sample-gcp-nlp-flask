@@ -28,10 +28,9 @@ Create your App Engine application:
 
     gcloud app create
 
-Set an environment variable for your project ID, replacing `[YOUR_PROJECT_ID]`
-with your project ID:
+Set an environment variable for your project ID:
 
-    export PROJECT_ID=[YOUR_PROJECT_ID]
+    export PROJECT_ID=$(gcloud config get-value core/project)
 
 ## Getting the sample code
 
@@ -79,14 +78,13 @@ Create a virtual environment and install dependencies:
     source env/bin/activate
     pip install -r requirements.txt
 
-Keep in mind to do the key creation and virtual environment set up steps above in the same directory (see these files being created with the ls command). This ensures your virtual environment can sue the service account privileges.
-Also, if you have to restart (re-activate) your virtual environment, keep in mind to do it from this directory where you have created the env, or it wont work.
+Note that if you have to restart (re-activate) your virtual environment, keep in mind to do it from this directory where you have created the env, or it wont work.
 
 Start your application locally:
 
     python main.py
 
-Visit `localhost:8080` to view your application running locally. Press `Control-C`
+Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. Press `Control-C`
 on your command line when you are finished.
 
 When you are ready to leave your virtual environment:
