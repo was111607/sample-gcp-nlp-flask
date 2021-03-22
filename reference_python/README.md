@@ -36,6 +36,8 @@ You should see the repo cloned into the navigator on the left side of the page. 
     
 You can now read through the notebooks and the sample outputs.
 You can also try to run the notebooks yourself. 
-If you run into any errors, ensure that you have the Natural Language API enabled (shell command below), and then restart the notebook kernel: 
+
+If you run into any errors, ensure that you have the Natural Language API enabled (shell command below): 
 
     gcloud services enable language.googleapis.com
+And then restart the notebook kernel ('Kernel' option in the JupyterLab top menu).
