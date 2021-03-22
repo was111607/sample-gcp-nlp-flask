@@ -19,11 +19,6 @@ Open the Cloud Shell (top right of console, or click the following button)
 [shell_link]: https://console.cloud.google.com/home/dashboard?cloudshell=true
 
 
-
-Initialize the Google Cloud SDK (skip if using Cloud Shell):
-
-    gcloud init
-
 Create your App Engine application:
 
     gcloud app create
