@@ -12,6 +12,7 @@ Make sure to [Enable Billing](https://pantheon.corp.google.com/billing?debugUI=D
 for your project.
 
 Open the Cloud Shell (top right of console, or click the following button)
+
 [![Cloud Shell][shell_img]][shell_link]
          
 [shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
