@@ -1,9 +1,5 @@
 # Python Google Natural Language Cloud  sample for Google App Engine Flexible Environment
 
-[![Open in Cloud Shell][shell_img]][shell_link]
-
-[shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
-[shell_link]: https://console.cloud.google.com/cloudshell/open
 
 This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
 
@@ -15,8 +11,12 @@ Make a note of your project ID, which may be different than your project name.
 Make sure to [Enable Billing](https://pantheon.corp.google.com/billing?debugUI=DEVELOPERS)
 for your project.
 
-Download the [Google Cloud SDK](https://cloud.google.com/sdk/docs/) to your
-local machine. Alternatively, you could use the [Cloud Shell](https://cloud.google.com/shell/docs/quickstart), which comes with the Google Cloud SDK pre-installed.
+Open the [![Cloud Shell][shell_img]][shell_link]
+         
+[shell_img]: http://gstatic.com/cloudssh/images/open-btn.png
+[shell_link]: https://console.cloud.google.com/cloudshell/open
+
+
 
 Initialize the Google Cloud SDK (skip if using Cloud Shell):
 
