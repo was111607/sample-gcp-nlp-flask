@@ -50,7 +50,7 @@ Enable the APIs: (You can also do these through Navigation Menu -> APIs & Servic
 
 Create a Service Account to access the Google Cloud APIs when testing locally:
 
-    gcloud iam service-accounts create qwiklab \
+    gcloud iam service-accounts create example \
     --display-name "My Service Account"
 
 Give your newly created Service Account appropriate permissions:
