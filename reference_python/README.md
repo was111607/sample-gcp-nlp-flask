@@ -1,4 +1,4 @@
-# Google Natural Language on a AI Notebook
+# Google Natural Language on a Google AI Notebook
 
 This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) through Google [AI Notebooks](https://cloud.google.com/ai-platform-notebooks).
 ## Set up
