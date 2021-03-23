@@ -82,9 +82,6 @@ Start your application locally:
 Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. Press `Control-C`
 on your command line when you are finished.
 
-When you are ready to leave your virtual environment:
-
-    deactivate
     
 ## Running tests
 
@@ -95,6 +92,11 @@ To run tests, install the requirements for your test
 Then run pytest by doing  
     
     python -m pytest
+
+## Deactivating your virtual environment
+When you are ready to leave your virtual environment:
+
+    deactivate
 
 ## Deploying to App Engine
 
