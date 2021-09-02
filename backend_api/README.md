@@ -1,5 +1,4 @@
-# Python Google Natural Language Cloud  sample for Google App Engine Flexible Environment
-
+# Python Google Natural Language Cloud sample for Google App Engine Flexible Environment
 
 This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
 
@@ -106,3 +105,8 @@ take several minutes.
     gcloud app deploy
 
 Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
+
+
+# Using Cloud SDK 
+Download Cloud SDK from 
+C:\Users\jiaxe\Documents\Projects\sample-gcp-nlp-flask
