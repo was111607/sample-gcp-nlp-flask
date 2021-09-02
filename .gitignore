@@ -66,3 +66,6 @@ venv.bak/
 /terraform-project/.terraform/*
 /terraform-project/.terraform.lock.hcl
 /.idea/
+
+# GCP Key
+key.json
