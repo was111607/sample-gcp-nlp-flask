@@ -110,3 +110,5 @@ take several minutes.
     gcloud app deploy
 
 Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
+
+You can continue to make new versions of the application and deploy them with the above command.
