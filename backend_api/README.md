@@ -105,8 +105,3 @@ take several minutes.
     gcloud app deploy
 
 Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
-
-
-# Using Cloud SDK 
-Download Cloud SDK from 
-C:\Users\jiaxe\Documents\Projects\sample-gcp-nlp-flask
