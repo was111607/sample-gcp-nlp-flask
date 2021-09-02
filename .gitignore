@@ -1,0 +1,68 @@
+.idea/
+*.iml
+*.pyc
+py3/
+data/
+build/
+dist/
+.pytest_cache/
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.pkl
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# pyenv
+.python-version
+
+# Environments
+.env
+.venv
+api-python/env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Terraform
+/terraform-project/.terraform/*
+/terraform-project/.terraform.lock.hcl
+/.idea/
