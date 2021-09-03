@@ -82,7 +82,7 @@ Start your virtual environment (windows):
 
     env\Scripts\activate
 
-Note: If you get an error from windows about not being ableto run scripts as it is disabled on this system then run the following command:
+Note: If you get an error from windows about not being able to run scripts as it is disabled on this system then run the following command:
 
     Set-ExecutionPolicy Unrestricted -Scope Process
 
