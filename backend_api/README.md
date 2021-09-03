@@ -64,15 +64,27 @@ To run our app "locally" through the cloud shell (that is, not deploying it just
 environment. This is just an environment where we install the specific dependencies needed by the project and
 can run the code.
 
+Install virtualenv:
+
+    pip install virtualenv
+
 Create a virtual environment and install dependencies:
 
     virtualenv -p python3 env
 
 If you do `ls` now, you will see an `/env` folder created which contains the virtual environment. 
 
-Start your virtual environment:
+Start your virtual environment (mac and linux):
 
     source env/bin/activate
+
+Start your virtual environment (windows):
+
+    env\Scripts\activate
+
+Note: If you get an error from windows about not being ableto run scripts as it is disabled on this system then run the following command:
+
+    Set-ExecutionPolicy Unrestricted -Scope Process
 
 Install the dependencies:
 
@@ -82,7 +94,7 @@ Start your application locally using your virtual environment:
 
     python main.py
 
-Visit the link generated ('Running on http://someipaddress:8080/') to view your application running locally. Test it out!
+Visit the link generated ('Running on http://localhost:8080/') to view your application running locally. Test it out!
 
 Press `Control-C`on your command line when you are finished to stop the application.
 
