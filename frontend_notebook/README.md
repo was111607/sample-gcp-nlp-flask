@@ -11,12 +11,21 @@ Click on the Navigation Menu and navigate to AI Platform, then to Notebooks.
 [notebook_img]: https://cdn.qwiklabs.com/fnUEPKKDGG4Xw1nbWJRpVfg02LTmJLOrel2Ny42JQVk%3D
 [notebook_link]: https://console.cloud.google.com/ai-platform/notebooks/list
 
-Enable the Notebooks API if it asks you to.
+## Setup (Done for you already)
+**We have done this for you, so feel free to just read through it**
+
+Enable the Notebooks API:
+
+    gcloud services enable notebooks.googleapis.com
 
 On the Notebook instances page, click New Instance. Select the Python 3 version. 
 For these demo notebooks, the default configuration should do the trick.
 
-Once the notebook has been provisioned (click refresh to update), click 'Open JupyterLab'. A JupyterLab window will open in a new tab. 
+This creates a Jupyter Notebook instance (which, behing the scenes, is actually just running on Google Compute Engine). 
+
+
+## Open the Notebook Instance
+Once the notebook has been provisioned, click 'Open JupyterLab'. A JupyterLab window will open in a new tab. 
 
 [![Open Jupyter Notebooks][jupyter_img]][jupyter_link]
 
@@ -26,7 +35,7 @@ Once the notebook has been provisioned (click refresh to update), click 'Open Ju
 
 ## Getting the sample code
 
-In the JupyterLab window that opens, click 'Git' in the top menu and clone the repository:
+In the JupyterLab window that opens, click 'Git' in the top menu and clone the repository (replace with your clone/fork):
 
     https://github.com/Jiaxen/sample-gcp-nlp-flask.git
 
@@ -34,4 +43,6 @@ You should see the repo cloned into the navigator on the left side of the page. 
 
     sample-gcp-nlp-flask/frontend_notebook
     
-You can now read through the notebooks and the sample outputs.
+You can now read through the notebooks and the sample outputs. 
+
+Now it's your turn to improve the Notebook with some awesome analysis!
