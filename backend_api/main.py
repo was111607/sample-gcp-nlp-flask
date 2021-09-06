@@ -8,6 +8,17 @@ import json
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
+"""
+This Flask app shows some examples of the types of requests you could build.
+There is currently a GET request that will return all the data in GCP Datastore
+There is also a POST request that will analyse some given text then store the text and its sentiment in GCP Datastore
+
+
+Some ideas of things to build:
+- GET Request that returns a single entity based on its ID
+- POST Request that will take a list of text items and give it a sentiment then store it in GCP Datastore
+- DELETE Request to delete an entity from Datastore based on its ID
+"""
 
 app = Flask(__name__)
 api= Api(app)
