@@ -24,14 +24,23 @@ You can do all of this directly in the Cloud Shell or you setup Cloud SDK on you
     gcloud services enable language.googleapis.com
     gcloud services enable datastore.googleapis.com
 
+Get the project ID and save it into an environment variable
+
+    export PROJECT_ID=$(gcloud config get-value core/project)
+
 
 Get the key.json for the App Engine service account:
 
     gcloud iam service-accounts keys create ~/key.json --iam-account \
-    {PROJECT_NAME}@appspot.gserviceaccount.com
+    ${PROJECT_ID}@appspot.gserviceaccount.com
 
-
-**IMPORTANT:** Keep this key.json a secret. You should not commit this file ever.
+<span style="color:red">
+<h1>
+<b>
+IMPORTANT: Keep this key.json a secret. You should not commit this file ever.
+</b>
+</h1>
+</span>
 
 ## Running the Backend on Cloud Shell
 
