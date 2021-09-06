@@ -3,3 +3,4 @@ gunicorn==20.0.4; python_version > '3.0'
 gunicorn==19.10.0; python_version < '3.0'
 google-cloud-datastore==2.1.0
 google-cloud-language==2.0.0
+flask-restx==0.5.1
