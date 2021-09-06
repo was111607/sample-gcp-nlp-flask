@@ -1,30 +1,34 @@
 from datetime import datetime
 import logging
-
 from flask import Flask, redirect, render_template, request
-
+from flask_restx import Resource, Api
 from google.cloud import datastore
 from google.cloud import language_v1 as language
-
-
+import json
+import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
 
 app = Flask(__name__)
+api= Api(app)
 
+@api.route("/api/text")
+class Text(Resource):
+    def get(self):
+        # Create a Cloud Datastore client.
+        datastore_client = datastore.Client()
+        query = datastore_client.query(kind="Sentences")
+        text_entities = list(query.fetch())
 
-@app.route("/")
-def homepage():
-    # Create a Cloud Datastore client.
-    datastore_client = datastore.Client()
+        result = {}
+        for text_entity in text_entities:
+            result[str(text_entity.id)] = {
+                'text': str(text_entity['text']),
+                'timestamp': str(text_entity['timestamp']),
+                'sentiment': str(text_entity['sentiment'])
+            }
 
-    # # Use the Cloud Datastore client to fetch information from Datastore
-    # Query looks for all documents of the 'Sentences' kind, which is how we
-    # store them in upload_text()
-    query = datastore_client.query(kind="Sentences")
-    text_entities = list(query.fetch())
-
-    # # Return a Jinja2 HTML template and pass in text_entities as a parameter.
-    return render_template("homepage.html", text_entities=text_entities)
+        return result
 
 
 @app.route("/upload", methods=["GET", "POST"])
