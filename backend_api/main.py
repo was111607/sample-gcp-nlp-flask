@@ -1,75 +1,94 @@
 from datetime import datetime
 import logging
-
 from flask import Flask, redirect, render_template, request
-
+from flask_restx import Resource, Api, reqparse, fields
 from google.cloud import datastore
 from google.cloud import language_v1 as language
+import json
+import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
+
+"""
+This Flask app shows some examples of the types of requests you could build.
+There is currently a GET request that will return all the data in GCP Datastore
+There is also a POST request that will analyse some given text then store the text and its sentiment in GCP Datastore
 
 
-
+Some ideas of things to build:
+- GET Request that returns a single entity based on its ID
+- POST Request that will take a list of text items and give it a sentiment then store it in GCP Datastore
+- DELETE Request to delete an entity from Datastore based on its ID
+"""
 
 app = Flask(__name__)
+api= Api(app)
+
+parser = api.parser()
+parser.add_argument('text', type=str, help='Text', location='form')
 
 
-@app.route("/")
-def homepage():
-    # Create a Cloud Datastore client.
-    datastore_client = datastore.Client()
+@api.route("/api/text")
+class Text(Resource):
+    def get(self):
+        # Create a Cloud Datastore client.
+        datastore_client = datastore.Client()
+        query = datastore_client.query(kind="Sentences")
+        text_entities = list(query.fetch())
 
-    # # Use the Cloud Datastore client to fetch information from Datastore
-    # Query looks for all documents of the 'Sentences' kind, which is how we
-    # store them in upload_text()
-    query = datastore_client.query(kind="Sentences")
-    text_entities = list(query.fetch())
+        # Parse the data into a dictionary format
+        result = {}
+        for text_entity in text_entities:
+            result[str(text_entity.id)] = {
+                'text': str(text_entity['text']),
+                'timestamp': str(text_entity['timestamp']),
+                'sentiment': str(text_entity['sentiment'])
+            }
 
-    # # Return a Jinja2 HTML template and pass in text_entities as a parameter.
-    return render_template("homepage.html", text_entities=text_entities)
+        return result
 
+    @api.expect(parser)
+    def post(self):
+        datastore_client = datastore.Client()
 
-@app.route("/upload", methods=["GET", "POST"])
-def upload_text():
-    text = request.form["text"]
+        args = parser.parse_args()
+        text = args['text']
 
-    # Analyse sentiment using Sentiment API call
-    sentiment = analyze_text_sentiment(text)[0].get('sentiment score')
+        sentiment = analyze_text_sentiment(text)[0].get('sentiment score')
+        
+        # Assign a label based on the score
+        overall_sentiment = 'unknown'
+        if sentiment > 0:
+            overall_sentiment = 'positive'
+        if sentiment < 0:
+            overall_sentiment = 'negative'
+        if sentiment == 0:
+            overall_sentiment = 'neutral'
 
-    # Assign a label based on the score
-    overall_sentiment = 'unknown'
-    if sentiment > 0:
-        overall_sentiment = 'positive'
-    if sentiment < 0:
-        overall_sentiment = 'negative'
-    if sentiment == 0:
-        overall_sentiment = 'neutral'
+        current_datetime = datetime.now()
 
-    # Create a Cloud Datastore client.
-    datastore_client = datastore.Client()
+        # The kind for the new entity. This is so all 'Sentences' can be queried.
+        kind = "Sentences"
 
-    # Fetch the current date / time.
-    current_datetime = datetime.now()
+        # If a key is not specified then datastore will automatically generate one
+        # key = datastore_client.key(kind, 'sample_task')
+        key = datastore_client.key(kind)
 
-    # The kind for the new entity. This is so all 'Sentences' can be queried.
-    kind = "Sentences"
+        # Construct the new entity using the key. Set dictionary values for entity
+        entity = datastore.Entity(key)
+        entity["text"] = text
+        entity["timestamp"] = current_datetime
+        entity["sentiment"] = overall_sentiment
 
-    # Create the Cloud Datastore key for the new entity.
-    key = datastore_client.key(kind, 'sample_task')
+        # Save the new entity to Datastore.
+        datastore_client.put(entity)
 
-    # Alternative to above, the following would store a history of all previous requests as no key
-    # identifier is specified, only a 'kind'. Datastore automatically provisions numeric ids.
-    # key = datastore_client.key(kind)
-
-    # Construct the new entity using the key. Set dictionary values for entity
-    entity = datastore.Entity(key)
-    entity["text"] = text
-    entity["timestamp"] = current_datetime
-    entity["sentiment"] = overall_sentiment
-
-    # Save the new entity to Datastore.
-    datastore_client.put(entity)
-
-    # Redirect to the home page.
-    return redirect("/")
+        result = {}
+        result[str(entity.key.id)] = {
+                'text': text,
+                'timestamp': str(current_datetime),
+                'sentiment': overall_sentiment
+            }
+        return result
 
 
 @app.errorhandler(500)

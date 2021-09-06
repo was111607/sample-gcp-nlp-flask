@@ -16,42 +16,35 @@ Create your App Engine application by typing:
 
 You will have to select a region. Choose one that is close to your location.
 
-Next, set an environment variable for your project ID:
-
-    export PROJECT_ID=$(gcloud config get-value core/project)
-
 ## Enable APIs and create a service account
 Next, we will enable the two GCP APIs needed to run our application. The first is the Natural Language API. The second is Datastore.
+
+You can do all of this directly in the Cloud Shell or you setup Cloud SDK on your local machine as well (see below on how to do that)
 
     gcloud services enable language.googleapis.com
     gcloud services enable datastore.googleapis.com
 
-Next, we want to create a Service Account to access the Google Cloud APIs when testing locally:
+Get the project ID and save it into an environment variable
 
-    gcloud iam service-accounts create example \
-    --display-name "My Service Account"
+    export PROJECT_ID=$(gcloud config get-value core/project)
 
-Give your newly created Service Account appropriate permissions:
 
-    gcloud projects add-iam-policy-binding ${PROJECT_ID} \
-    --member serviceAccount:example@${PROJECT_ID}.iam.gserviceaccount.com \
-    --role roles/owner
-
-After creating your Service Account, create a Service Account key:
+Get the key.json for the App Engine service account:
 
     gcloud iam service-accounts keys create ~/key.json --iam-account \
-    example@${PROJECT_ID}.iam.gserviceaccount.com
+    ${PROJECT_ID}@appspot.gserviceaccount.com
 
-Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to point to where
-you just put your Service Account key:
+<span style="color:red">
+<h1>
+<b>
+IMPORTANT: Keep this key.json a secret. You should not commit this file ever.
+</b>
+</h1>
+</span>
 
-    export GOOGLE_APPLICATION_CREDENTIALS="/home/${USER}/key.json"
+## Running the Backend on Cloud Shell
 
-**IMPORTANT:** Keep this key.json a secret. You should not commit this file ever.
-
-## Getting the sample code
-
-Run the following command to clone the Github repository:
+Run the following command to clone the Github repository to your cloud shell:
 
     git clone https://github.com/Jiaxen/sample-gcp-nlp-flask.git
 
@@ -59,10 +52,12 @@ Change directory to the backend directory:
 
     cd sample-gcp-nlp-flask/backend_api
 
-## Running "locally"
-To run our app "locally" through the cloud shell (that is, not deploying it just yet), we should create a virtual 
-environment. This is just an environment where we install the specific dependencies needed by the project and
-can run the code.
+## Running Flask on Cloud Shell
+To run our app through the cloud shell (that is, not deploying it just yet), we should create a virtual environment. This is just an environment where we install the specific dependencies needed by the project and can run the code.
+
+Install virtualenv:
+
+    pip install virtualenv
 
 Create a virtual environment and install dependencies:
 
@@ -70,7 +65,7 @@ Create a virtual environment and install dependencies:
 
 If you do `ls` now, you will see an `/env` folder created which contains the virtual environment. 
 
-Start your virtual environment:
+Start your virtual environment (mac and linux):
 
     source env/bin/activate
 
@@ -78,25 +73,15 @@ Install the dependencies:
 
     pip install -r requirements.txt
 
-Start your application locally using your virtual environment:
+Start your application via cloud shell using your virtual environment:
 
     python main.py
 
-Visit the link generated ('Running on http://someipaddress:8080/') to view your application running locally. Test it out!
+Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. Test it out! (click on the link from cloud shell)
 
-Press `Control-C`on your command line when you are finished to stop the application.
+Press `Control-C` on your command line when you are finished to stop the application.
 
-    
-## Running tests
-
-To run tests, install the requirements for your test
-    
-    pip install -r requirements-test.txt
-
-Then run pytest by doing  
-    
-    python -m pytest
-
+ 
 ## Deactivating your virtual environment
 When you are ready to leave your virtual environment:
 
@@ -112,3 +97,18 @@ take several minutes.
 Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
 
 You can continue to make new versions of the application and deploy them with the above command.
+
+## Running Locally (Optionally)
+Alternatively, if you do not wish to use the Cloud Shell you can setup the Cloud SDK on your local machine instead.
+
+Download the Cloud SDK here https://cloud.google.com/sdk/docs/downloads-interactive
+
+Once downloaded and installed login using:
+
+    gcloud auth login
+
+Link to the correct project (using the wrong project might accidently bill you instead). Extra documentation https://cloud.google.com/sdk/docs/initializing
+
+    gcloud init
+
+Then follow the instructions as normal
