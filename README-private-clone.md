@@ -10,7 +10,7 @@ If you wish to make a private clone of this repository, follow these steps:
 3) Click 'Begin Import'.
 
 ## Cloning your private repository 
-When cloning your private repository (e.g. into Cloud Shell or your local machine), you will need to sign in to GitHub.
+After the above, when cloning your private repository (e.g. into Cloud Shell or your local machine), you will need to sign in to GitHub.
 
 In case you haven't done this in a while, you may need to use a personal access token in place of your password: 
 https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
