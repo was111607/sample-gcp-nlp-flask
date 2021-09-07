@@ -18,6 +18,9 @@ Some ideas of things to build:
 - GET Request that returns a single entity based on its ID
 - POST Request that will take a list of text items and give it a sentiment then store it in GCP Datastore
 - DELETE Request to delete an entity from Datastore based on its ID
+
+We are using Flask: https://flask.palletsprojects.com/en/2.0.x/
+Flask RESTX is an extension of Flask that allows us to document the API with Swagger: https://flask-restx.readthedocs.io/en/latest/
 """
 
 app = Flask(__name__)
