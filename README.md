@@ -2,6 +2,8 @@
 
 Welcome! This is the stub project for building your Natural Language Analysis Platform using GCP.
 
+See [here](README-private-clone.md) for instructions to make a private clone of this repository.
+
 ## The Goal
 The goal is to set up a platform to analyse text data using GCP Services.
 

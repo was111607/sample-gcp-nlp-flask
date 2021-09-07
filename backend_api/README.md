@@ -1,6 +1,6 @@
-# Python Google Natural Language Cloud sample for Google App Engine Flexible Environment
+# Flask + Google NLP API + Datastore (The Backend)
 
-This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
+This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) inside a Flask application, all running on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
 
 It will create a simple Python flask app that serves some REST endpoints. The application will communicate with GCP's 
 NLP API for analysis and Datastore for a NoSQL database. The endpoints created will later be used by the Notebook 
