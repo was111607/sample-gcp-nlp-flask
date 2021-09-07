@@ -1,10 +1,9 @@
 from datetime import datetime
 import logging
-from flask import Flask, redirect, render_template, request
-from flask_restx import Resource, Api, reqparse, fields
+from flask import Flask
+from flask_restx import Resource, Api
 from google.cloud import datastore
 from google.cloud import language_v1 as language
-import json
 import os
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
