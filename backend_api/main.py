@@ -6,6 +6,7 @@ from google.cloud import datastore
 from google.cloud import language_v1 as language
 import json
 import os
+
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
 """
@@ -24,10 +25,10 @@ Flask RESTX is an extension of Flask that allows us to document the API with Swa
 """
 
 app = Flask(__name__)
-api= Api(app)
+api = Api(app)
 
 parser = api.parser()
-parser.add_argument('text', type=str, help='Text', location='form')
+parser.add_argument("text", type=str, help="Text", location="form")
 
 
 @api.route("/api/text")
@@ -42,9 +43,9 @@ class Text(Resource):
         result = {}
         for text_entity in text_entities:
             result[str(text_entity.id)] = {
-                'text': str(text_entity['text']),
-                'timestamp': str(text_entity['timestamp']),
-                'sentiment': str(text_entity['sentiment'])
+                "text": str(text_entity["text"]),
+                "timestamp": str(text_entity["timestamp"]),
+                "sentiment": str(text_entity["sentiment"]),
             }
 
         return result
@@ -54,18 +55,18 @@ class Text(Resource):
         datastore_client = datastore.Client()
 
         args = parser.parse_args()
-        text = args['text']
+        text = args["text"]
 
-        sentiment = analyze_text_sentiment(text)[0].get('sentiment score')
-        
+        sentiment = analyze_text_sentiment(text)[0].get("sentiment score")
+
         # Assign a label based on the score
-        overall_sentiment = 'unknown'
+        overall_sentiment = "unknown"
         if sentiment > 0:
-            overall_sentiment = 'positive'
+            overall_sentiment = "positive"
         if sentiment < 0:
-            overall_sentiment = 'negative'
+            overall_sentiment = "negative"
         if sentiment == 0:
-            overall_sentiment = 'neutral'
+            overall_sentiment = "neutral"
 
         current_datetime = datetime.now()
 
@@ -87,10 +88,10 @@ class Text(Resource):
 
         result = {}
         result[str(entity.key.id)] = {
-                'text': text,
-                'timestamp': str(current_datetime),
-                'sentiment': overall_sentiment
-            }
+            "text": text,
+            "timestamp": str(current_datetime),
+            "sentiment": overall_sentiment,
+        }
         return result
 
 
@@ -106,6 +107,8 @@ def server_error(e):
         ),
         500,
     )
+
+
 def analyze_text_sentiment(text):
     client = language.LanguageServiceClient()
     document = language.Document(content=text, type_=language.Document.Type.PLAIN_TEXT)
@@ -124,10 +127,10 @@ def analyze_text_sentiment(text):
     # Get sentiment for all sentences in the document
     sentence_sentiment = []
     for sentence in response.sentences:
-        item={}
-        item["text"]=sentence.text.content
-        item["sentiment score"]=sentence.sentiment.score
-        item["sentiment magnitude"]=sentence.sentiment.magnitude
+        item = {}
+        item["text"] = sentence.text.content
+        item["sentiment score"] = sentence.sentiment.score
+        item["sentiment magnitude"] = sentence.sentiment.magnitude
         sentence_sentiment.append(item)
 
     return sentence_sentiment
