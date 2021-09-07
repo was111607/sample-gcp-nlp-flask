@@ -33,7 +33,7 @@ You can do all of this directly in the Cloud Shell or you setup Cloud SDK on you
     gcloud services enable datastore.googleapis.com
 
 **Note: Okay, back to your part!**
-
+You can do all of this directly in the Cloud Shell or if you setup Cloud SDK on your local machine as well (see below on how to do that)
 ## Creating a Service Account key
 We are going to use the default App Engine service account to run our app. We get its key so that we can access it when 
 testing the app locally.
@@ -79,7 +79,7 @@ Create a virtual environment and install dependencies:
 
 If you do `ls` now, you will see an `/env` folder created which contains the virtual environment. 
 
-Start your virtual environment (mac and linux):
+Start your virtual environment:
 
     source env/bin/activate
 
@@ -91,10 +91,10 @@ Start your application via cloud shell using your virtual environment:
 
     python main.py
 
-Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. 
-Test it out! (click on the link from cloud shell)
+Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. Test it out! (click on the link from cloud shell)
 
-The link will open a Swagger UI. Try sending the sentence "Today is a great day for coding!" in the post request. Then execute the get request.
+You should be presented with a [Swagger UI](https://swagger.io/tools/swagger-ui/) page. This page will allow you to interact with the backend REST API easily. In the examples we have given you can make a post request where we apply sentiment analysis on some given text and then save it to [GCP Datastore](https://cloud.google.com/datastore/docs/quickstart)
+Try sending the sentence "Today is a great day for coding!" in the post request. Then execute the get request.
 
 Press `Control-C` on your command line when you are finished to stop the application.
 
@@ -130,10 +130,11 @@ Link to the correct project (using the wrong project might accidently bill you i
     gcloud init
 
 For mac/linux:
-    Follow the instructions above as normal
+    Follow the instructions above as normal. 
 
 For Windows:
-    Follow the instructions above as normal but replace `export` with `set`, and replace `/` with `\ \` in directory strings.  
+    Follow the instructions above as normal but replace `export` with `set`.
+    To activate your VM, do `\venv\Scripts\activate`.
 
 ## Get Started Coding!
 Alright, now it's your time to start coding. Take a look at the main.py to see how it works, and how you should improve it!
