@@ -16,13 +16,9 @@ Create your App Engine application by typing:
 
 You will have to select a region. Choose one that is close to your location.
 
-## Enable APIs and create a service account
-Next, we will enable the two GCP APIs needed to run our application. The first is the Natural Language API. The second is Datastore.
+## Get Service Account Key
 
-You can do all of this directly in the Cloud Shell or you setup Cloud SDK on your local machine as well (see below on how to do that)
-
-    gcloud services enable language.googleapis.com
-    gcloud services enable datastore.googleapis.com
+You can do all of this directly in the Cloud Shell or if you setup Cloud SDK on your local machine as well (see below on how to do that)
 
 Get the project ID and save it into an environment variable
 
@@ -65,7 +61,7 @@ Create a virtual environment and install dependencies:
 
 If you do `ls` now, you will see an `/env` folder created which contains the virtual environment. 
 
-Start your virtual environment (mac and linux):
+Start your virtual environment:
 
     source env/bin/activate
 
@@ -78,6 +74,8 @@ Start your application via cloud shell using your virtual environment:
     python main.py
 
 Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. Test it out! (click on the link from cloud shell)
+
+You should be presented with a [Swagger UI](https://swagger.io/tools/swagger-ui/) page. This page will allow you to interact with the backend REST API easily. In the examples we have given you can make a post request where we apply sentiment analysis on some given text and then save it to [GCP Datastore](https://cloud.google.com/datastore/docs/quickstart)
 
 Press `Control-C` on your command line when you are finished to stop the application.
 
@@ -111,4 +109,14 @@ Link to the correct project (using the wrong project might accidently bill you i
 
     gcloud init
 
-Then follow the instructions as normal
+Then follow the instructions from the top as normal (some small adjustments may be required if using windows)
+
+Additionally, to set environment variables such as the project id on windows use 'set' and with mac you can continue to use 'export'. If there are issues with this you can just manually copy and paste the project id. 
+
+For windows activating your python environment is slightly different
+
+    \venv\Scripts\activate
+
+And if you get an error about not being abel to execute scripts you may need to do the following as well:
+
+    Set-ExecutionPolicy Unrestricted -Scope Process
