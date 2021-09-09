@@ -34,6 +34,18 @@ You can do all of this directly in the Cloud Shell or you setup Cloud SDK on you
 
 **Note: Okay, back to your part!**
 You can do all of this directly in the Cloud Shell or if you setup Cloud SDK on your local machine as well (see below on how to do that)
+
+## Cloning the code into Cloud Shell
+
+Run the following command to clone the GitHub repository to your cloud shell (replace it with your clone/fork url):
+
+    git clone https://github.com/Jiaxen/sample-gcp-nlp-flask.git (replace with your forked version)
+
+If you use a private repository, you will need to [log in to GitHub](../README-private-clone.md). \
+Change directory to the backend directory:
+
+    cd sample-gcp-nlp-flask/backend_api
+
 ## Creating a Service Account key
 We are going to use the default App Engine service account to run our app. We get its key so that we can access it when 
 testing the app locally.
@@ -55,17 +67,6 @@ IMPORTANT: Keep this key.json a secret. You should never commit this file ever.
 </b>
 </h1>
 </span>
-
-## Cloning the code into Cloud Shell
-
-Run the following command to clone the GitHub repository to your cloud shell (replace it with your clone/fork url):
-
-    git clone https://github.com/Jiaxen/sample-gcp-nlp-flask.git
-
-If you use a private repository, you will need to [log in to GitHub](../README-private-clone.md). \
-Change directory to the backend directory:
-
-    cd sample-gcp-nlp-flask/backend_api
 
 ## Running the backend on Cloud Shell with a Virtual Environment
 To run our app through the cloud shell (that is, not deploying it just yet), we should create a virtual environment. This is just an environment where we install the specific dependencies needed by the project and can run the code.
@@ -136,6 +137,10 @@ For mac/linux:
 For Windows:
     Follow the instructions above as normal but replace `export` with `set`.
     To activate your VM, do `\venv\Scripts\activate`.
+
+If you get an error on Windows similar to this: `running scripts is disabled on this system` then run the following command:
+
+    Set-ExecutionPolicy Unrestricted -Scope Process
 
 ## Get Started Coding!
 Alright, now it's your time to start coding. Take a look at the main.py to see how it works, and how you should improve it!
