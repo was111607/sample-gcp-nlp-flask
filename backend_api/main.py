@@ -30,9 +30,12 @@ You can access the database through the GCP Cloud Console (find Datastore in the
 
 
 Some ideas of things to build:
+- At the moment, the code only stores the analysis of the first sentence of a given text. Modify the POST request to
+ also analyse the rest of the sentences. 
 - GET Request that returns a single entity based on its ID
 - POST Request that will take a list of text items and give it a sentiment then store it in GCP Datastore
 - DELETE Request to delete an entity from Datastore based on its ID
+- Implement the other analyses that are possible with Google's NLP API
 
 
 We are using Flask: https://flask.palletsprojects.com/en/2.0.x/
