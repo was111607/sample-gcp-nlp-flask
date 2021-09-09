@@ -76,7 +76,8 @@ class Text(Resource):
     @api.expect(parser)
     def post(self):
         """
-        This POST request will return the sentiment analysis of the first sentence of a given piece of text.
+        This POST request will accept a 'text', analyze the sentiment analysis of the first sentence, store
+        the result to datastore as a 'Sentence', and also return the result.
         """
         datastore_client = datastore.Client()
 
