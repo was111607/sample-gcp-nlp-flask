@@ -35,3 +35,8 @@ You should see the repo cloned into the navigator on the left side of the page. 
     sample-gcp-nlp-flask/frontend_notebook
     
 You can now read through the notebooks and the sample outputs.
+
+## Analysing Articles
+
+Develop your text anlaysis solution. You can find articles to analyse in the /articles directory.
+
