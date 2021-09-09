@@ -1,0 +1,20 @@
+Deutsche Bank Partners with Oracle to Accelerate Technology Modernization
+Deutsche Bank selects Oracle Exadata Cloud@Customer to consolidate key databases in its selected data centers
+
+Companies form innovation partnership to modernize Deutsche Bank’s mission-critical databases and enable new financial products and services
+
+Frankfurt, Germany and Austin, Texas—June 24, 2021
+Deutsche Bank partnership
+Oracle and Deutsche Bank, one of the world’s largest financial services organizations, today announced a multi-year collaboration to modernize the bank’s database technology and accelerate its digital transformation.
+
+The agreement will see Deutsche Bank upgrade its existing database systems and migrate the bulk of its Oracle Database estate to Oracle Exadata Cloud@Customer, an on-premises deployment option of the Oracle Exadata Cloud Service, to support applications that either will not move to the public cloud or may in the future. This will provide a dedicated platform to support and scale the bank’s existing mission-critical systems and services including trading, payments processing, risk and capital planning, and regulatory reporting.
+
+Migrating its systems to Oracle Exadata Cloud@Customer will enable Deutsche Bank to consolidate existing critical applications on a single platform while complying with its data residency requirements and significantly reducing operational costs. Oracle’s service can run in Deutsche Bank’s current data centers as well as in future cloud co-location sites, minimizing latency while supporting the shift of applications to the cloud. It will enable Deutsche Bank to drive data integration across its business in order to streamline operations, provide unified oversight of core service processes and implementations, and easily develop and scale applications based on customer demand.
+
+The two companies have also agreed to form a joint innovation partnership, bringing together Oracle and Deutsche Bank engineering and technology teams to explore potential uses for data security technologies, blockchain, AI and analytics to shape the design of new financial products and services.
+
+The collaboration supports Deutsche Bank’s multi-year digital transformation initiative led by its Technology, Data and Innovation (TDI) division, and is a logical further step in the bank’s overall cloud strategy. This includes establishing a strategic public cloud partnership in December 2020.
+
+“Data is fundamental to how we manage our operations, anticipate the needs of our customers and design new products and services. Our collaboration with Oracle to modernize our databases will play an important role in our overall technology transformation,” said Bernd Leukert, Chief Technology, Data and Innovation Officer, Deutsche Bank. “Our applications supported by Oracle Exadata Cloud@Customer will benefit from a platform with the flexibility to adapt and scale critical services at speed, as well as derive better data insights. In the process, we will simplify and modernize our technology environment, save the bank significant costs and reduce energy consumption through consolidated servers.”
+
+“Now more than ever, financial services organizations like Deutsche Bank must quickly adopt new technologies and maintain speed-of-innovation while also meeting their data security and locality requirements in an always-changing regulatory environment. Oracle Exadata Cloud@Customer is designed to help Deutsche Bank achieve this balance, and we are looking forward to partnering with one of the financial sector’s most progressive digital innovators as we help shape the next generation of financial services and business models,” said Juan Loaiza, Executive Vice President, Mission-Critical Database Technologies, Oracle.
