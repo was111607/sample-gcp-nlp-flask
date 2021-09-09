@@ -138,5 +138,9 @@ For Windows:
     Follow the instructions above as normal but replace `export` with `set`.
     To activate your VM, do `\venv\Scripts\activate`.
 
+If you get an error on Windows similar to this: `running scripts is disabled on this system` then run the following command:
+
+    Set-ExecutionPolicy Unrestricted -Scope Process
+
 ## Get Started Coding!
 Alright, now it's your time to start coding. Take a look at the main.py to see how it works, and how you should improve it!
