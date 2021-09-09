@@ -1,6 +1,6 @@
 # Google AI Notebooks (The Frontend)
 
-This sample demonstrates how to use Google [AI Notebooks](https://cloud.google.com/ai-platform-notebooks).
+This README contains instructions on how to use Google [AI Notebooks](https://cloud.google.com/ai-platform-notebooks).
 
 ## Launch AI Platform Notebooks 
 
