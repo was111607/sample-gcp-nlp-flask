@@ -57,7 +57,7 @@ Get the project ID and save it into an environment variable
 
 Get the key.json for the App Engine service account:
 
-    gcloud iam service-accounts keys create ~/key.json --iam-account \
+    gcloud iam service-accounts keys create key.json --iam-account \
     ${PROJECT_ID}@appspot.gserviceaccount.com
 
 <span style="color:red">
