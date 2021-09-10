@@ -2,7 +2,7 @@
 
 Welcome! This is the stub project for building your Natural Language Analysis Platform using GCP.
 
-## Team Setup (Do this only once the repo is 'ready' - you will get an email for this.)
+## Team Setup
 1) One person in your team should create a private GitHub clone of this repository. See [here](README-private-clone.md) for instructions to make a private clone of this repository.
 2) The same person should add your team members' GitHub accounts into the private GitHub clone that you have made.
 3) This repo can then be used by your team to do the development.
