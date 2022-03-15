@@ -2,6 +2,11 @@
 
 Welcome! This is the stub project for building your Natural Language Analysis Platform using GCP.
 
+## Prerequisites
+1. Ability in or desire to learn Python!  
+1.1 python version > 3.7 
+2. Ability in or desire to learn Google Cloud Platform!
+
 ## Team Setup
 1) One person in your team should create a private GitHub clone of this repository. See [here](README-private-clone.md) for instructions to make a private clone of this repository.
 2) The same person should add your team members' GitHub accounts into the private GitHub clone that you have made.
