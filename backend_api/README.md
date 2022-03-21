@@ -144,3 +144,7 @@ If you get an error on Windows similar to this: `running scripts is disabled on 
 
 ## Get Started Coding!
 Alright, now it's your time to start coding. Take a look at the main.py to see how it works, and how you should improve it!
+
+For those curious about Data Science, jupyter notebooks (.ipynb or iPython Notebook files) are an essential part of experimentation. You can test out different AI/ML models on different data much quicker using them, compared to using regular .py files. Feel free to experiment with different methods of topic analysis in TopicAnalyser.ipynb, or try using different data. 
+When you're finished experimenting, consider making your experimented code available in TopicAnalyser.py, and make TopicAnalyser.py part of your API in main.py.
+(NOTE: this is only one optional path you can take with your project)
