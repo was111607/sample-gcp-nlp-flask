@@ -3,7 +3,7 @@ env: flex
 entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
-  python_version: 3
+  python_version: 3.7
 
 automatic_scaling:
   max_num_instances: 5
