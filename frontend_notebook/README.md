@@ -47,6 +47,6 @@ You can now read through the notebook and the sample outputs.
 
 ## Analysing Articles
 
-Develop your text anlaysis solution. You can find articles to analyse in the /articles directory.
+Develop your text analysis solution. You can find articles to analyse in the /articles directory.
 
 
