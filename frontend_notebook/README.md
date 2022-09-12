@@ -37,7 +37,7 @@ Once the notebook has been provisioned, click 'Open JupyterLab'. A JupyterLab wi
 
 In the JupyterLab window that opens, click 'Git' in the top menu and clone the repository (replace with your clone/fork):
 
-    https://github.com/Jiaxen/sample-gcp-nlp-flask.git
+    https://github.com/was111607/sample-gcp-nlp-flask.git
 
 You should see the repo cloned into the navigator on the left side of the page. Navigate into the sample notebooks:
 
