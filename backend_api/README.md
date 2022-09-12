@@ -39,7 +39,7 @@ You can do all of this directly in the Cloud Shell or if you setup Cloud SDK on 
 
 Run the following command to clone the GitHub repository to your cloud shell (replace it with your clone/fork url):
 
-    git clone https://github.com/Jiaxen/sample-gcp-nlp-flask.git (replace with your forked version)
+    git clone https://github.com/was111607/sample-gcp-nlp-flask.git (replace with your forked version)
 
 If you use a private repository, you will need to [log in to GitHub](../README-private-clone.md). \
 Change directory to the backend directory:
