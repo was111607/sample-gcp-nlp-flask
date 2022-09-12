@@ -5,3 +5,4 @@ google-cloud-datastore==2.1.0
 google-cloud-language==2.0.0
 flask-restx==0.5.1
 scikit-learn==1.0.2
+werkzeug==werkzeug==2.1.2
