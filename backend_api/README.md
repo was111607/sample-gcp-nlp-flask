@@ -89,6 +89,7 @@ Start your virtual environment:
 Install the dependencies:
 
     pip install -r requirements.txt
+    (Other dependencies are flas_restx, google-cloud)
 
 Start your application via cloud shell using your virtual environment:
 
