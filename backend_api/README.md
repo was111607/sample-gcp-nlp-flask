@@ -72,6 +72,8 @@ IMPORTANT: Keep this key.json a secret. You should never commit this file ever.
 ## Running the backend on Cloud Shell with a Virtual Environment
 To run our app through the cloud shell (that is, not deploying it just yet), we should create a virtual environment. This is just an environment where we install the specific dependencies needed by the project and can run the code.
 
+### For *nix systems
+
 Install virtualenv:
 
     pip install virtualenv
@@ -85,6 +87,31 @@ If you do `ls` now, you will see an `/env` folder created which contains the vir
 Start your virtual environment:
 
     source env/bin/activate
+
+Install the dependencies:
+
+    pip install -r requirements.txt
+
+Start your application via cloud shell using your virtual environment:
+
+    python main.py
+
+
+### For Windows
+
+Install virtualenv:
+
+    pip install virtualenv
+
+Create a virtual environment and install dependencies:
+
+    python -m virtualenv .
+
+If you do `ls` now, you will see an `/Scripts` folder created which contains the virtual environment. 
+
+Start your virtual environment:
+
+     .\Scripts\activate
 
 Install the dependencies:
 
