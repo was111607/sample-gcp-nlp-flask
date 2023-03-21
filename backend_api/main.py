@@ -89,7 +89,7 @@ class Text(Resource):
         # Get the sentiment score of each sentence of the analysis
         analyzed = analyze_text_sentiment(text)
         for analyzed_sentence in analyzed:
-            sentiment = analyze_text_sentiment(text)[0].get("sentiment score")
+            sentiment = analyzed_sentence.get("sentiment score")
 
             # Assign a label based on the score
             overall_sentiment = "unknown"
