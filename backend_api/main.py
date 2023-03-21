@@ -84,44 +84,48 @@ class Text(Resource):
         args = parser.parse_args()
         text = args["text"]
 
-        # Get the sentiment score of the first sentence of the analysis (that's the [0] part)
-        sentiment = analyze_text_sentiment(text)[0].get("sentiment score")
-
-        # Assign a label based on the score
-        overall_sentiment = "unknown"
-        if sentiment > 0:
-            overall_sentiment = "positive"
-        if sentiment < 0:
-            overall_sentiment = "negative"
-        if sentiment == 0:
-            overall_sentiment = "neutral"
-
-        current_datetime = datetime.now()
-
-        # The kind for the new entity. This is so all 'Sentences' can be queried.
-        kind = "Sentences"
-
-        # Create a key to store into datastore
-        key = datastore_client.key(kind)
-        # If a key id is not specified then datastore will automatically generate one. For example, if we had:
-        # key = datastore_client.key(kind, 'sample_task')
-        # instead of the above, then 'sample_task' would be the key id used.
-
-        # Construct the new entity using the key. Set dictionary values for entity
-        entity = datastore.Entity(key)
-        entity["text"] = text
-        entity["timestamp"] = current_datetime
-        entity["sentiment"] = overall_sentiment
-
-        # Save the new entity to Datastore.
-        datastore_client.put(entity)
-
         result = {}
-        result[str(entity.key.id)] = {
-            "text": text,
-            "timestamp": str(current_datetime),
-            "sentiment": overall_sentiment,
-        }
+
+        # Get the sentiment score of each sentence of the analysis
+        analyzed = analyze_text_sentiment(text)
+        for analyzed_sentence in analyzed:
+            sentiment = analyze_text_sentiment(text)[0].get("sentiment score")
+
+            # Assign a label based on the score
+            overall_sentiment = "unknown"
+            if sentiment > 0:
+                overall_sentiment = "positive"
+            if sentiment < 0:
+                overall_sentiment = "negative"
+            if sentiment == 0:
+                overall_sentiment = "neutral"
+
+            current_datetime = datetime.now()
+
+            # The kind for the new entity. This is so all 'Sentences' can be queried.
+            kind = "Sentences"
+
+            # Create a key to store into datastore
+            key = datastore_client.key(kind)
+            # If a key id is not specified then datastore will automatically generate one. For example, if we had:
+            # key = datastore_client.key(kind, 'sample_task')
+            # instead of the above, then 'sample_task' would be the key id used.
+
+            # Construct the new entity using the key. Set dictionary values for entity
+            entity = datastore.Entity(key)
+            entity["text"] = text
+            entity["timestamp"] = current_datetime
+            entity["sentiment"] = overall_sentiment
+
+            # Save the new entity to Datastore.
+            datastore_client.put(entity)
+
+            result[str(entity.key.id)] = {
+                "text": text,
+                "timestamp": str(current_datetime),
+                "sentiment": overall_sentiment,
+            }
+
         return result
 
 
