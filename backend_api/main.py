@@ -111,9 +111,11 @@ class Text(Resource):
             # key = datastore_client.key(kind, 'sample_task')
             # instead of the above, then 'sample_task' would be the key id used.
 
+            sentence_text = analyzed_sentence["text"]
+
             # Construct the new entity using the key. Set dictionary values for entity
             entity = datastore.Entity(key)
-            entity["text"] = text
+            entity["text"] = sentence_text
             entity["timestamp"] = current_datetime
             entity["sentiment"] = overall_sentiment
 
@@ -121,7 +123,7 @@ class Text(Resource):
             datastore_client.put(entity)
 
             result[str(entity.key.id)] = {
-                "text": text,
+                "text": sentence_text,
                 "timestamp": str(current_datetime),
                 "sentiment": overall_sentiment,
             }
