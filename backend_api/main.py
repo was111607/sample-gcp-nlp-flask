@@ -30,11 +30,11 @@ You can access the database through the GCP Cloud Console (find Datastore in the
 
 
 Some ideas of things to build:
-- At the moment, the code only stores the analysis of the first sentence of a given text. Modify the POST request to
+- DONE: At the moment, the code only stores the analysis of the first sentence of a given text. Modify the POST request to
  also analyse the rest of the sentences. 
-- GET Request that returns a single entity based on its ID
+- DONE: GET Request that returns a single entity based on its ID
 - POST Request that will take a list of text items and give it a sentiment then store it in GCP Datastore
-- DELETE Request to delete an entity from Datastore based on its ID
+- DONE: DELETE Request to delete an entity from Datastore based on its ID
 - Implement the other analyses that are possible with Google's NLP API
 
 
@@ -129,6 +129,42 @@ class Text(Resource):
             }
 
         return result
+
+
+@api.route("/api/entities/<int:entity_id>")
+class Entity(Resource):
+    def get(self, entity_id):
+        """
+        This GET request will return text and sentiment of the entity with the given ID that has been POSTed previously.
+        """
+        # Create a Cloud Datastore client.
+        datastore_client = datastore.Client()
+
+        # Get the datastore 'kind' which are 'Sentences' by entity_id
+        text_entity = datastore_client.get(datastore_client.key("Sentences", entity_id))
+
+        if text_entity is None:
+            return {}
+        else:
+            # Parse the data into a dictionary format
+            result = {
+                "text": str(text_entity["text"]),
+                "timestamp": str(text_entity["timestamp"]),
+                "sentiment": str(text_entity["sentiment"]),
+            }
+            return result
+
+    def delete(self, entity_id):
+        """
+        This DELETE request will delete entity with the given ID that has been POSTed previously.
+        """
+        # Create a Cloud Datastore client.
+        datastore_client = datastore.Client()
+
+        # Deletes the datastore 'kind' which are 'Sentences' by entity_id
+        datastore_client.delete(datastore_client.key("Sentences", entity_id))
+
+        return {}
 
 
 @app.errorhandler(500)
