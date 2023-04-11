@@ -24,6 +24,7 @@ parts/
 sdist/
 var/
 wheels/
+Scripts/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -55,6 +56,7 @@ instance/
 # Environments
 .env
 .venv
+pyvenv.cfg
 api-python/env/
 venv/
 ENV/
