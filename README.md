@@ -32,4 +32,8 @@ creates visualisations.
 The code for the frontend is in the **/frontend_notebook** folder, as well as some coded examples of visualisation.
  
 ## Get started
-Get started by reading the readme in the /backend_api folder. 
+Get started by looking into the [backend readme](backend_api/README.md) and [frontend readme](frontend_notebook/README.md).
+
+Or, if you'd like run your code locally first (before publishing to GCP), you can have a look into [Local setup with VS Code & DevContainer](README-vscode.md).
+
+If you are interested, you can also give Github Codespaces a try - please have a look into [Remote development with Github Codespaces](README-github-codespace.md).
