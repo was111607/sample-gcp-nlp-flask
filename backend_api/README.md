@@ -6,6 +6,8 @@ It will create a simple Python flask app that serves some REST endpoints. The ap
 NLP API for analysis and Datastore for a NoSQL database. The endpoints created will later be used by the Notebook 
 frontend.
 
+Please note: when ran locally, the backend API uses Python 3.9 but when deployed to GCP, it uses Python 3.10.
+
 
 ## Using the Cloud Shell
 Head over to the [Google Cloud Platform console](https://console.cloud.google.com/) and make sure you are in the desired project.
@@ -15,6 +17,8 @@ Open the Cloud Shell by clicking this button on the top right of the console:
 ![img.png](../docs/img.png)
 
 Here, you can enter commands to interact with GCP.
+
+Although the Cloud Shell is pre-installed with gcloud (and other libraries), you are strongly recommended to install and use gcloud locally to undertake development. Scroll further for instructions on how to install gcloud.
 
 ## App Engine and API Setup (done for you already)
 **Note: We have done this step for you, so feel free to just read through it.** 
@@ -39,6 +43,8 @@ You can do all of this directly in the Cloud Shell or if you setup Cloud SDK on 
 
 If you use a private repository, you will need to [log in to GitHub](../README-private-clone.md) first. \
 Run the following commands to clone the GitHub repository to your cloud shell (replace it with your clone/fork url):
+
+Note: if you are using gcloud locally instead of the Cloud Shell, you will need to install gh locally for the following steps.
 
     gh auth login (follow the steps to connect to your GitHub)
     git clone https://github.com/was111607/sample-gcp-nlp-flask.git (replace with your forked version)
