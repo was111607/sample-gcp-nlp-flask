@@ -35,19 +35,28 @@ Once the notebook has been provisioned, click 'Open JupyterLab'. A JupyterLab wi
 
 ## Getting the sample code
 
-In the JupyterLab window that opens, click 'Git' in the top menu and clone the repository (replace with your clone/fork), the quickest way to get past authentication is to generate and use a personal access token in place of your GitHub password:
+In the JupyterLab window that opens, click 'Git' -> 'Clone a Repository' in the top menu and clone the private repository that you made of the [sample repo](https://github.com/was111607/sample-gcp-nlp-flask.git) in the general setup before, providing the HTTPS URL of the repository. The quickest way to get past authentication is to generate and use a personal access token in place of your GitHub password.
 
-    https://github.com/was111607/sample-gcp-nlp-flask.git
-
-You should see the repo cloned into the navigator on the left side of the page. Navigate into the sample notebooks:
-
-    sample-gcp-nlp-flask/frontend_notebook
+You should see the repo cloned into the navigator on the left side of the page under the 'sample-gcp-nlp-flask' folder. 
     
-You can now read through the notebook and the sample outputs.
+## Notebook setup
 
-## Initial notebook test run
+The following steps configures you to be able to run your front end app through a notebook. Step 3 will need to be performed everytime the notebook is restarted.
 
-To complete a test run of the notebook, you must first access the deployed backend API and POST text for analysis. After this has been completed, restart the kernel and re-run the notebook (this may need to be repeated several times as newly installed libraries may not update the notebook quickly enough).
+1. Head to the [ngrok website](https://dashboard.ngrok.com/) and log in. If required, sign up for an account.
+    * Ngrok is used in the front end notebook to expose the web app to the internet, allowing access through an auto-generated URL.
+1. Open a terminal from the JupyterLab launcher
+1. Retrieve and run in the JupyterLab terminal the command to add your auth token (section 2 'connect your account' [here](https://dashboard.ngrok.com/get-started/setup)). It should look like the following:
+
+    ```
+    ngrok config add-authtoken [YOUR_AUTH_TOKEN]
+    ```
+
+## Demo notebook run
+
+1. If you have not already, first access the deployed backend API by visiting `https://[PROJECT_ID].appspot.com` to view your deployed application. and use the POST endpoint to submit text for analysis.
+1. Open Plotly_Data_Visualization_Demo.ipynb from the navigator (under the 'sample-gcp-nlp-flask/frontend_notebook' folders)
+
 
 ## Analysing Articles
 

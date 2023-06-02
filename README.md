@@ -4,7 +4,7 @@ Welcome! This is the stub project for building your Natural Language Analysis Pl
 
 ## Prerequisites
 1. Ability in or desire to learn Python!  
-1.1 python version > 3.7 
+1.1 Python version: 3.10
 2. Ability in or desire to learn Google Cloud Platform!
 
 ## Team Setup
