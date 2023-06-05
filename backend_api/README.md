@@ -176,6 +176,10 @@ If you get an error on Windows similar to this: `running scripts is disabled on 
 
     Set-ExecutionPolicy Unrestricted -Scope Process
 
+To ensure you are using the latest versions of all installed components use:
+
+    gcloud components update
+
 ## Get Started Coding!
 Alright, now it's your time to start coding. Take a look at the main.py to see how it works, and how you should improve it!
 
