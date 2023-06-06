@@ -46,7 +46,7 @@ The following steps configures you to be able to run your front end app through 
 1. Head to the [ngrok website](https://dashboard.ngrok.com/) and log in. If required, sign up for an account.
     * Ngrok is used in the front end notebook to expose the web app to the internet, allowing access through an auto-generated URL.
 1. Open a terminal from the JupyterLab launcher
-1. Retrieve and run in the JupyterLab terminal the command to add your auth token (section 2 'connect your account' [here](https://dashboard.ngrok.com/get-started/setup)). It should look like the following:
+1. Retrieve and run in the JupyterLab terminal the command to add your authtoken (section 2 'connect your account' [here](https://dashboard.ngrok.com/get-started/setup)). It should look like the following:
 
     ```
     ngrok config add-authtoken [YOUR_AUTH_TOKEN]
