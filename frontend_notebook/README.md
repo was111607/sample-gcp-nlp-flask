@@ -3,7 +3,7 @@
 This README contains instructions on how to use Google [AI Notebooks](https://cloud.google.com/ai-platform-notebooks).
 
 
-## First time setup
+## First Time Setup
 The following steps configures you to be able to run your front end app through the GCP-deployed notebook. These only need to be performed once at the start of the project by 1 member of your team.
 
 1. Head to the [ngrok website](https://dashboard.ngrok.com/) and log in. If required, sign up for an account.
