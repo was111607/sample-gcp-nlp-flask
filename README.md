@@ -18,22 +18,23 @@ The goal is to set up a platform to analyse text data using GCP Services.
 ## The Architecture
 ![The architecture](docs/architecture.png)
 
-### The backend
-The backend is a REST endpoint service using the Flask framework in Python. This will be deployed in GCP App Engine.
+### The Back End
+The back end is a REST endpoint service using the Flask framework in Python. This will be deployed in GCP App Engine.
 This component will talk to GCP's [Natural Language API](https://cloud.google.com/natural-language) service to analyse 
 our text, and use GCP Datastore as a NoSQL database for storage. 
 
 The code for the backend is in the **/backend_api** folder.
 
-### The frontend
-The frontend is a Jupyter notebook which interacts with the backend REST service to obtain the analysed data, and then
+### The Front End
+The front end is a Jupyter notebook which interacts with the backend REST service to obtain the analysed data, and then
 creates visualisations. 
 
 The code for the frontend is in the **/frontend_notebook** folder, as well as some coded examples of visualisation.
  
 ## Get started
-Get started by looking into the [backend readme](backend_api/README.md) and [frontend readme](frontend_notebook/README.md).
+1. Perform the back end [configuration steps](backend_api/README.md)
+1. Perform the front end [configuration steps](frontend_notebook/README.md) 
 
-Or, if you'd like run your code locally first (before publishing to GCP), you can have a look into [Local setup with VS Code & DevContainer](README-vscode.md).
+If you'd like run your code locally first (before publishing to GCP), you can have a look into [Local setup with VS Code & DevContainer](README-vscode.md).
 
 If you are interested, you can also give Github Codespaces a try - please have a look into [Remote development with Github Codespaces](README-github-codespace.md).

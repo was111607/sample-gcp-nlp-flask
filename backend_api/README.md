@@ -151,6 +151,7 @@ Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
 
 You can continue to make new versions of the application and deploy them with the above command.
 
+
 ## Running Locally (Optionally)
 Alternatively, if you do not wish to use the Cloud Shell you can setup the Cloud SDK on your local machine instead.
 This will allow you to run the app entirely from your local machine instead of the cloud shell console.
@@ -180,8 +181,18 @@ To ensure you are using the latest versions of all installed components use:
 
     gcloud components update
 
-## Get Started Coding!
-Alright, now it's your time to start coding. Take a look at the main.py to see how it works, and how you should improve it!
+
+## First Time Setup
+To check that the back end has been deployed correctly, perform the following steps:
+1. Access the deployed API by visiting `https://[YOUR_PROJECT_ID].appspot.com`
+1. Use the POST endpoint to submit text for analysis.
+1. Use the GET endpoint to check that your submitted text has been analysed.
+
+
+## Next Steps
+If this is your first time setting up the project, you can now move onto performing the front end [configuration steps](../frontend_notebook/README.md).
+
+When you have fully set up the project, it's your time to develop your entire solution. Take a look at the main.py file to see how the back end works and build on this for your solution, serving your front end web app!
 
 For those curious about Data Science, jupyter notebooks (.ipynb or iPython Notebook files) are an essential part of experimentation. You can test out different AI/ML models on different data much quicker using them, compared to using regular .py files. Feel free to experiment with different methods of topic analysis in TopicAnalyser.ipynb, or try using different data. 
 When you're finished experimenting, consider making your experimented code available in TopicAnalyser.py, and make TopicAnalyser.py part of your API in main.py.
