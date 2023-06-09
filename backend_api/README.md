@@ -194,6 +194,9 @@ Change directory to the backend directory:
 
     cd sample-gcp-nlp-flask/backend_api
 
+## Creating a Service Account key (very important!)
+Before you proceed any further, create a Service Account key as explained [here](#creating-a-service-account-key). Skip this step if you have already created one for your project - **YOU ONLY NEED TO DO THIS ONCE!**.
+
 ## Running the backend using the Cloud Shell
 
 To run your app through the cloud shell, create a virtual environment. Follow the instructions outlined above [here](#creating-a-virtual-environment) and [here](#deactivating-your-virtual-environment).
