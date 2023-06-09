@@ -12,7 +12,7 @@ You can develop your application locally using the Google Cloud CLI (gcloud) or 
 
 Although the Cloud Shell is pre-installed with gcloud (and other libraries), you are STRONGLY recommended to install and use gcloud locally to undertake development.
 
-Our suggestion is to follow the steps to use gcloud as given below and if, in the end, you feel the application is not set up as outlined, you can use the Cloud Shell to make sure (steps available [here](#using-the-cloud-shells)).
+Our suggestion is to follow the steps to use gcloud as given below and if, in the end, you feel the application is not set up as outlined, you can use the Cloud Shell to make sure (steps available [below](#using-the-cloud-shells)).
 
 ## Using gcloud
 You are required to set up the Cloud SDK on your local machine to use gcloud.
@@ -90,7 +90,7 @@ IMPORTANT: Keep this key.json a secret. You should never commit this file ever.
 ## Running the backend
 To just run your app (that is, not deploying it just yet), you are recommended to create a virtual enviroment. This is just an environment where we install the specific dependencies needed by the project and can run the code. You can, of course, run the app without a virtual environment but it is usually easier to use one during the course of development as it allows you to effectively manage and isolate dependencies for different projects.
 
-If you wish to use a virtual environment, you are required to create it just once: before you run the backend for the first time, after which, you have to simply activate/deactivate your virtual environment. Not to worry, the following steps will walk you through it!
+If you wish to use a virtual environment, you are required to create it just once: before you run the app for the first time, after which, you have to simply activate/deactivate your virtual environment. Not to worry, the following steps will walk you through it!
 
 ### Creating a Virtual Environment:
 
@@ -168,7 +168,7 @@ take several minutes.
 
 Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
 
-You can continue to make new versions of the application and deploy them with the above command. If you are not using the Cloud Shell, you are ready to [start coding](#get-started-coding)!
+You can continue to make new versions of the application and deploy them with the above command. If you are not using the Cloud Shell, head to [Get Started Coding](#get-started-coding)!
 
 ## Using the Cloud Shell
 Head over to the [Google Cloud Platform console](https://console.cloud.google.com/) and make sure you are in the desired project.
@@ -203,7 +203,7 @@ To run your app through the cloud shell, create a virtual environment. Follow th
 
 ## Deploying app on App Engine with Cloud Shell
 
-Once again, follow the steps outlined earlier [here](#deploying-to-app-engine) to deploy you application.
+Once again, follow the steps outlined earlier [here](#deploying-to-app-engine) to deploy your application.
 
 ## Get Started Coding!
 Alright, now it's your time to start coding. Take a look at the main.py to see how it works, and how you should improve it!
