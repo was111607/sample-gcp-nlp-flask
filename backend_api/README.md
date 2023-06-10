@@ -49,7 +49,9 @@ If you get an error on Windows similar to this: `running scripts is disabled on 
 
 Create your App Engine application:
 
+    ```
     gcloud app create
+    ```
 
 You will have to select a region. Choose one that is close to your location.
 
@@ -57,8 +59,10 @@ Next, we will enable the two GCP APIs needed to run our application. The first i
 
 You can do all of this directly in the Cloud Shell or you setup Cloud SDK on your local machine as well (see below on how to do that)
 
+    ```
     gcloud services enable language.googleapis.com
     gcloud services enable datastore.googleapis.com
+    ```
 
 **Okay, back to your part!**
 
@@ -93,8 +97,6 @@ Running the back end both locally and when deployed requires using App Engine se
     gcloud iam service-accounts keys create key.json --iam-account \
     ${PROJECT_ID}@appspot.gserviceaccount.com
     ```
-
-**TODO: continue from here, keep reordering**
 
 ## Running the backend
 To just run your app (that is, not deploying it just yet), you are recommended to create a virtual enviroment. This is just an environment where we install the specific dependencies needed by the project and can run the code. You can, of course, run the app without a virtual environment but it is usually easier to use one during the course of development as it allows you to effectively manage and isolate dependencies for different projects.
