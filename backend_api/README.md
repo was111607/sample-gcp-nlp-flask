@@ -30,11 +30,11 @@ You are required to set up the Cloud SDK on your local machine to use gcloud.
     gcloud init
     ```
 
-To ensure you are using the latest versions of all installed components, update gcloud regularly:
-    
+To ensure that you are using the latest versions of all installed components, update gcloud regularly:
+
     ```
     gcloud components update
-    ```    
+    ```
 
 If you get an error on Windows similar to this: `running scripts is disabled on this system` then run the following command:
 
@@ -68,7 +68,7 @@ After you have successfully set up gcloud, you **MUST** obtain a Service Account
 
 Running the back end both locally and when deployed requires using App Engine service account assigned to your GCP project. You need to get its account key:
 
-1.Get the project ID and save it into an environment variable:
+1. Get the project ID and save it into an environment variable:
     1. macOS/UNIX:
 
     ```
