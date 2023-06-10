@@ -31,9 +31,10 @@ You are required to set up the Cloud SDK on your local machine to use gcloud.
     ```
 
 To ensure that you are using the latest versions of all installed components, update gcloud regularly:
-    ```
-    gcloud components update
-    ```
+
+```
+gcloud components update
+```
 
 If you get an error on Windows similar to this: `running scripts is disabled on this system` then run the following command:
 
