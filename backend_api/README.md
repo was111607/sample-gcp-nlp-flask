@@ -1,12 +1,11 @@
 # Flask + Google NLP API + Datastore (The Backend)
-
 This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) inside a Flask application, all running on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
 
 It will create a simple Python flask app that serves some REST endpoints. The application will communicate with GCP's 
 NLP API for analysis and Datastore for a NoSQL database. The endpoints created will later be used by the Notebook 
 frontend.
 
-Please note: when ran locally, the backend API uses Python 3.9 but when deployed to GCP, it uses Python 3.10.
+Python version used on GCP: 3.10
 
 You can develop your application locally using the Google Cloud CLI (gcloud) or through the web browser using the Cloud Shell.
 
@@ -67,7 +66,6 @@ gcloud services enable datastore.googleapis.com
 After you have successfully set up gcloud, you **MUST** obtain a Service Account key as outlined in the following section.
 
 ### Creating a Service Account key
-
 Running the back end (either locally or when deployed) requires using App Engine service account assigned to your GCP project. You need to get and store the account key:
 
 1. Get the project ID and save it into an environment variable:
@@ -96,75 +94,66 @@ Running the back end (either locally or when deployed) requires using App Engine
 ### Local Development Environment
 You should first test new and changed code locally to verify correct functionality before deployment onto GCP, which hosts the 'live', final version of your project. To facilitate this, you are strongly recommended to create a virtual enviroment. This is an environment where we install and manage the specific dependencies needed by the project to run the code, and is isolated away from other environments running projects to prevent conflicts between different dependencies.
 
-After creating the virtual environment, you must 'activate' it to access it and 'deactivate' it when you do not need to use it.
+After creating the virtual environment, you must 'activate' it to access it. If you need to stop development and leave it e.g. to work on another project, you must 'deactivate' it.
 
-#### Creating a Virtual Environment:
+#### Creating a Virtual Environment
+There are many different libraries that help create a virtual environment for you. The following steps describe the installation and setup of an environment using the 'Anaconda' library, although you are free to choose whichever environments suits you.
 
-**For macOS/Unix systems**
+1. Follow Anaconda installation steps for your system [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#installing-conda-on-a-system-that-has-other-python-installations-or-packages)
 
-Install virtualenv:
+1. Create the virtual environment, replacing the placeholders with a name of your choice:
+    ```
+    conda create -n <project-env> python=3.10.10
+    ```
 
-    pip install virtualenv
+1. Activate the virtual environment:
+    ```
+    conda activate <project-env>
+    ```
 
-Create a virtual environment and install dependencies:
+1. If you haven't already, go to the backend_api folder:
+    ```
+    cd backend_api
+    ```
 
-    virtualenv -p python3 env
-
-If you do `ls` now, you will see an `/env` folder created which contains the virtual environment. 
-
-Start your virtual environment:
-
-    source env/bin/activate
-
-Install the dependencies:
-
+1. Install project dependencies:
+    ```
     pip install -r requirements.txt
+    ```
 
-Start your application via cloud shell using your virtual environment:
+#### Running the Back End Locally
 
+1. Activate the virtual environment:
+    ```
+    conda activate <project-env>
+    ```
+
+1. If you haven't already, go to the backend_api folder:
+    ```
+    cd backend_api
+    ```
+
+1. Start application:
+    ```
     python main.py
+    ```
 
-
-**For Windows**
-
-Install virtualenv:
-
-    pip install virtualenv
-
-Create a virtual environment and install dependencies:
-
-    python -m virtualenv .
-
-If you do `ls` now, you will see an `/Scripts` folder created which contains the virtual environment. 
-
-Start your virtual environment:
-
-     .\Scripts\activate
-
-Install the dependencies:
-
-    pip install -r requirements.txt
-
-Start your application via cloud shell using your virtual environment:
-
-    python main.py
-
-Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. Test it out!
+1. Visit the link generated ('Running on http://127.0.0.1:8080/') to view your application running locally. Test it out!
 
 You should be presented with a [Swagger UI](https://swagger.io/tools/swagger-ui/) page. This page will allow you to interact with the backend REST API easily. In the examples we have given you can make a post request where we apply sentiment analysis on some given text and then save it to [GCP Datastore](https://cloud.google.com/datastore/docs/quickstart)
-Try sending the sentence "Today is a great day for coding!" in the post request. Then execute the get request.
+
+Try sending a sentence e.g. "Today is a great day for coding!" in the POST request. Then execute the GET request to view the text analysis results. If you get results, you have now successfully configured the local development environment.
 
 Press `Control-C` on your command line when you are finished to stop the application.
-
-The next time you want to run your 
  
-### Deactivating your virtual environment
-When you are ready to leave your virtual environment:
 
-    deactivate
+#### Deactivating your virtual environment
+If you need to leave your virtual environment:
+```
+conda deactivate
+```
 
-Note: activate your virtual environment when you wish to resume development and deactivate it when you wish to stop development for the time being.
-
+**CONTINUE FROM HERE**
 ## Deploying to App Engine
 
 Deploy your application to App Engine with the following command. Please note that this may
