@@ -18,26 +18,23 @@ Our suggestion is to follow the steps to use gcloud as given below and if, in th
 You are required to set up the Cloud SDK on your local machine to use gcloud.
 
 1. Download the Cloud SDK [here](https://cloud.google.com/sdk/docs/downloads-interactive). ONLY follow the steps to download and install.
-1. Log in using gcloud:
 
+1. Log in using gcloud:
     ```
     gcloud auth login
     ```
 
 1. Link to the correct project (using the wrong project might accidently bill you instead). [Extra documentation](https://cloud.google.com/sdk/docs/initializing)
-
     ```
     gcloud init
     ```
 
 To ensure that you are using the latest versions of all installed components, update gcloud regularly:
-
 ```
 gcloud components update
 ```
 
 If you get an error on Windows similar to this: `running scripts is disabled on this system` then run the following command:
-
 ```
 Set-ExecutionPolicy Unrestricted -Scope Process
 ```
@@ -49,7 +46,6 @@ Set-ExecutionPolicy Unrestricted -Scope Process
 **Note: We have done this step for you, so feel free to just read through it.** 
 
 Create your App Engine application:
-
 ```
 gcloud app create
 ```
@@ -59,7 +55,6 @@ You will have to select a region. Choose one that is close to your location.
 Next, we will enable the two GCP APIs needed to run our application. The first is the Natural Language API. The second is Datastore.
 
 You can do all of this directly in the Cloud Shell or you setup Cloud SDK on your local machine as well (see below on how to do that)
-
 ```
 gcloud services enable language.googleapis.com
 gcloud services enable datastore.googleapis.com
@@ -75,25 +70,21 @@ Running the back end both locally and when deployed requires using App Engine se
 
 1. Get the project ID and save it into an environment variable:
     1. macOS/UNIX:
-
     ```
     export PROJECT_ID=$(gcloud config get-value core/project)
     ```
 
     2. Windows:
-
     ```
     set PROJECT_ID=$(gcloud config get-value core/project)
     ```
 
 1. If you are not already, make sure that you are in the "backend_api" folder
-
     ```
     cd backend_api
     ```
 
 1. Get the App Engine service account key and save into key.json. **Keep key.json a secret. You should never commit this file ever**:
-
     ```
     gcloud iam service-accounts keys create key.json --iam-account \
     ${PROJECT_ID}@appspot.gserviceaccount.com
