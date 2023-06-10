@@ -14,7 +14,10 @@ Although the Cloud Shell is pre-installed with gcloud (and other libraries), you
 
 Our suggestion is to follow the steps to use gcloud as given below and if, in the end, you feel the application is not set up as outlined, you can use the [Cloud Shell](#using-the-cloud-shell) to make sure.
 
-## Using gcloud
+## First Time Setup
+The steps outlined in this section only need to be performed once when setting up the project for the first time. Every team member should perform these steps.
+
+### Using gcloud
 You are required to set up the Cloud SDK on your local machine to use gcloud.
 
 1. Download the Cloud SDK [here](https://cloud.google.com/sdk/docs/downloads-interactive). ONLY follow the steps to download and install.
@@ -39,10 +42,9 @@ If you get an error on Windows similar to this: `running scripts is disabled on 
 Set-ExecutionPolicy Unrestricted -Scope Process
 ```
 
-## First Time Setup
+**TODO: MOVE**
 
-
-## App Engine and API Setup (done for you already)
+### App Engine and API Setup (done for you already)
 **Note: We have done this step for you, so feel free to just read through it.** 
 
 Create your App Engine application:
@@ -64,9 +66,9 @@ gcloud services enable datastore.googleapis.com
 
 After you have successfully set up gcloud, you **MUST** obtain a Service Account key as outlined in the following section.
 
-## Creating a Service Account key
+### Creating a Service Account key
 
-Running the back end both locally and when deployed requires using App Engine service account assigned to your GCP project. You need to get its account key:
+Running the back end (either locally or when deployed) requires using App Engine service account assigned to your GCP project. You need to get and store the account key:
 
 1. Get the project ID and save it into an environment variable:
     1. macOS/UNIX:
@@ -90,14 +92,15 @@ Running the back end both locally and when deployed requires using App Engine se
     ${PROJECT_ID}@appspot.gserviceaccount.com
     ```
 
-## Running the backend
-To just run your app (that is, not deploying it just yet), you are recommended to create a virtual enviroment. This is just an environment where we install the specific dependencies needed by the project and can run the code. You can, of course, run the app without a virtual environment but it is usually easier to use one during the course of development as it allows you to effectively manage and isolate dependencies for different projects.
 
-If you wish to use a virtual environment, you are required to create it just once: before you run the app for the first time, after which, you have to simply activate/deactivate your virtual environment. Not to worry, the following steps will walk you through it!
+### Local Development Environment
+You should first test new and changed code locally to verify correct functionality before deployment onto GCP, which hosts the 'live', final version of your project. To facilitate this, you are strongly recommended to create a virtual enviroment. This is an environment where we install and manage the specific dependencies needed by the project to run the code, and is isolated away from other environments running projects to prevent conflicts between different dependencies.
 
-### Creating a Virtual Environment:
+After creating the virtual environment, you must 'activate' it to access it and 'deactivate' it when you do not need to use it.
 
-### For macOS/Unix systems
+#### Creating a Virtual Environment:
+
+**For macOS/Unix systems**
 
 Install virtualenv:
 
@@ -122,7 +125,7 @@ Start your application via cloud shell using your virtual environment:
     python main.py
 
 
-### For Windows
+**For Windows**
 
 Install virtualenv:
 
