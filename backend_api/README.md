@@ -31,7 +31,6 @@ You are required to set up the Cloud SDK on your local machine to use gcloud.
     ```
 
 To ensure that you are using the latest versions of all installed components, update gcloud regularly:
-
     ```
     gcloud components update
     ```
