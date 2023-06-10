@@ -75,11 +75,13 @@ Running the back end both locally and when deployed requires using App Engine se
 
 1. Get the project ID and save it into an environment variable:
     1. macOS/UNIX:
+
     ```
     export PROJECT_ID=$(gcloud config get-value core/project)
     ```
 
-    1. Windows:
+    2. Windows:
+
     ```
     set PROJECT_ID=$(gcloud config get-value core/project)
     ```
