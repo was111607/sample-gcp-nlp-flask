@@ -5,8 +5,6 @@ It will create a simple Python flask app that serves some REST endpoints. The ap
 NLP API for analysis and Datastore for a NoSQL database. The endpoints created will later be used by the Notebook 
 frontend.
 
-Python version used on GCP: 3.10
-
 You can develop your application locally using the Google Cloud CLI (gcloud) or through the web browser using the Cloud Shell.
 
 Although the Cloud Shell is pre-installed with gcloud (and other libraries), you are STRONGLY recommended to install and use gcloud locally to undertake development.

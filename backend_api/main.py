@@ -6,8 +6,6 @@ from google.cloud import datastore
 from google.cloud import language_v1 as language
 import os
 
-import sys
-
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 
 """
@@ -71,7 +69,6 @@ class Text(Resource):
                 "text": str(text_entity["text"]),
                 "timestamp": str(text_entity["timestamp"]),
                 "sentiment": str(text_entity["sentiment"]),
-                "version": str(sys.version)
             }
 
         return result
