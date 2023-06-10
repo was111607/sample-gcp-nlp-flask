@@ -38,8 +38,9 @@ gcloud components update
 
 If you get an error on Windows similar to this: `running scripts is disabled on this system` then run the following command:
 
-    Set-ExecutionPolicy Unrestricted -Scope Process
-
+```
+Set-ExecutionPolicy Unrestricted -Scope Process
+```
 
 ## First Time Setup
 
@@ -49,9 +50,9 @@ If you get an error on Windows similar to this: `running scripts is disabled on 
 
 Create your App Engine application:
 
-    ```
-    gcloud app create
-    ```
+```
+gcloud app create
+```
 
 You will have to select a region. Choose one that is close to your location.
 
@@ -59,10 +60,10 @@ Next, we will enable the two GCP APIs needed to run our application. The first i
 
 You can do all of this directly in the Cloud Shell or you setup Cloud SDK on your local machine as well (see below on how to do that)
 
-    ```
-    gcloud services enable language.googleapis.com
-    gcloud services enable datastore.googleapis.com
-    ```
+```
+gcloud services enable language.googleapis.com
+gcloud services enable datastore.googleapis.com
+```
 
 **Okay, back to your part!**
 
