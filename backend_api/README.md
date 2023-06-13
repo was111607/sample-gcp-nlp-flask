@@ -164,4 +164,4 @@ Also have a look at TopicAnalyser.py as an example of functionality that can bec
 #### Using Jupyter Notebooks
 For those curious about Data Science, Jupyter notebooks (.ipynb or iPython Notebook files) are an essential part of experimentation. You can perform tests e.g.different AI/ML models on different data, much quicker using them compared to using regular .py files.
 
-So consider experimenting using notebooks and moving code into the .py files that form your back end. You can create notebooks in the environment setup that you would create for the [front end](../frontend_notebook/README.md)
+So consider experimenting using notebooks and moving code into the .py files that form your back end. You can create notebooks in the [front end](../frontend_notebook/README.md) environment setup that you would create for the.
