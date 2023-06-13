@@ -67,10 +67,11 @@ Now you are ready to develop your entire solution! You can use the demo notebook
 
 You can find example articles to play around with in the /articles directory to get used to the flow of development.
 
+
 ### Development Flow
 As your code inside JupyterLab is connected to your repository, all usual Git actions and operations are applicable to it using the JupyterLab terminal. For example:
 
 * Creating new branches
 * Working on different branches
 * Committing code changes
-* Fetching code changes (i.e. new commits from local development)
+* Fetching code changes to update code in JupyterLab (i.e. new commits from local development)
