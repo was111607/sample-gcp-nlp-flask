@@ -1,18 +1,16 @@
 # Flask + Google NLP API + Datastore (The Backend)
 This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) inside a Flask application, all running on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
 
-It will create a simple Python flask app that serves some REST endpoints. The application will communicate with GCP's 
+It will create a simple Python flask application that serves some REST endpoints. The application will communicate with GCP's 
 NLP API for analysis and Datastore for a NoSQL database. The endpoints created will later be used by the Notebook 
 frontend.
 
-You can develop your application locally using the Google Cloud CLI (gcloud) or through the web browser using the Cloud Shell.
+You can develop your application locally using the Google Cloud CLI (gcloud).
 
-Although the Cloud Shell is pre-installed with gcloud (and other libraries), you are STRONGLY recommended to install and use gcloud locally to undertake development.
-
-Our suggestion is to follow the steps to use gcloud as given below and if, in the end, you feel the application is not set up as outlined, you can use the [Cloud Shell](#using-the-cloud-shell) to make sure.
 
 ## First Time Setup
 The steps outlined in this section only need to be performed once when setting up the project for the first time. Every team member should perform these steps.
+
 
 ### Using gcloud
 You are required to set up the Cloud SDK on your local machine to use gcloud.
@@ -39,27 +37,6 @@ If you get an error on Windows similar to this: `running scripts is disabled on 
 Set-ExecutionPolicy Unrestricted -Scope Process
 ```
 
-**TODO: MOVE**
-
-### App Engine and API Setup (done for you already)
-**Note: We have done this step for you, so feel free to just read through it.** 
-
-Create your App Engine application:
-```
-gcloud app create
-```
-
-You will have to select a region. Choose one that is close to your location.
-
-Next, we will enable the two GCP APIs needed to run our application. The first is the Natural Language API. The second is Datastore.
-
-You can do all of this directly in the Cloud Shell or you setup Cloud SDK on your local machine as well (see below on how to do that)
-```
-gcloud services enable language.googleapis.com
-gcloud services enable datastore.googleapis.com
-```
-
-**Okay, back to your part!**
 
 After you have successfully set up gcloud, you **MUST** obtain a Service Account key as outlined in the following section.
 
@@ -93,6 +70,7 @@ Running the back end (either locally or when deployed) requires using App Engine
 You should first test new and changed code locally to verify correct functionality before deployment onto GCP, which hosts the 'live', final version of your project. To facilitate this, you are strongly recommended to create a virtual enviroment. This is an environment where we install and manage the specific dependencies needed by the project to run the code, and is isolated away from other environments running projects to prevent conflicts between different dependencies.
 
 After creating the virtual environment, you must 'activate' it to access it. If you need to stop development and leave it e.g. to work on another project, you must 'deactivate' it.
+
 
 #### Creating a Virtual Environment
 There are many different libraries that help create a virtual environment for you. The following steps describe the installation and setup of an environment using the 'Anaconda' library, although you are free to choose whichever environments suits you.
@@ -143,74 +121,47 @@ You should be presented with a [Swagger UI](https://swagger.io/tools/swagger-ui/
 Try sending a sentence e.g. "Today is a great day for coding!" in the POST request. Then execute the GET request to view the text analysis results. If you get results, you have now successfully configured the local development environment.
 
 Press `Control-C` on your command line when you are finished to stop the application.
- 
 
-#### Deactivating your virtual environment
+Now it's time to test if you can deploy the back end to Google App Engine. Familiarise yourself with these [steps](#deploying-to-app-engine) and nominate 1 team member to make the first-time deployment and test.
+
+
+#### Deactivating Your Virtual Environment
 If you need to leave your virtual environment:
 ```
 conda deactivate
 ```
 
-**CONTINUE FROM HERE**
+
 ## Deploying to App Engine
+Google App Engine is used to host a 'live' version of your back end, accessible publicly through a URL. Unlike your local development environment, which through exploring solutions and testing you will run into bugs and other issues, code that is deployed to App Engine should be bug-free and represent a complete state of your code.
 
-Deploy your application to App Engine with the following command. Please note that this may
-take several minutes.
-
-    gcloud app deploy
+Deploy your application to App Engine with the following command. Please note that this may take several minutes.
+```
+gcloud app deploy
+```
 
 Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
 
-You can continue to make new versions of the application and deploy them with the above command. If you are not using the Cloud Shell, head to [Get Started Coding](#get-started-coding)!
-
-## Using the Cloud Shell
-Head over to the [Google Cloud Platform console](https://console.cloud.google.com/) and make sure you are in the desired project.
-
-Open the Cloud Shell by clicking this button on the top right of the console:
-
-![img.png](../docs/img.png)
-
-Here, you can enter commands to interact with GCP.
-
-## App Engine and API Setup
-This step has been done for you already (outlined earlier [here](#app-engine-and-api-setup-done-for-you-already)).
-
-## Cloning the code into Cloud Shell
-
-If you use a private repository, you will need to [log in to GitHub](../README-private-clone.md) first. \
-Run the following commands to clone the GitHub repository to your cloud shell (replace it with your clone/fork url):
-
-    gh auth login (follow the steps to connect to your GitHub)
-    git clone https://github.com/was111607/sample-gcp-nlp-flask.git (replace with your forked version)
-
-Change directory to the backend directory:
-
-    cd sample-gcp-nlp-flask/backend_api
-
-## Creating a Service Account key (very important!)
-Before you proceed any further, create a Service Account key as explained [here](#creating-a-service-account-key). Skip this step if you have already created one for your project - **YOU ONLY NEED TO DO THIS ONCE!**.
-
-## Running the backend using the Cloud Shell
-
-To run your app through the cloud shell, create a virtual environment. Follow the instructions outlined above [here](#creating-a-virtual-environment) and [here](#deactivating-your-virtual-environment).
-
-## Deploying app on App Engine with Cloud Shell
-
-Once again, follow the steps outlined earlier [here](#deploying-to-app-engine) to deploy your application.
+You can continue to make new versions of the application and deploy them with the above command.
 
 
-## First Time Setup
+### Final Checks
 To check that the back end has been deployed correctly, perform the following steps:
 1. Access the deployed API by visiting `https://[YOUR_PROJECT_ID].appspot.com`
 1. Use the POST endpoint to submit text for analysis.
 1. Use the GET endpoint to check that your submitted text has been analysed.
 
+When the above steps have passed, you have now fully completed configuring the back end!
 
-## Next Steps
-If this is your first time setting up the project, you can now move onto performing the front end [configuration steps](../frontend_notebook/README.md).
+If this is your first time setting up the whole project, please move onto performing the front end [configuration steps](../frontend_notebook/README.md).
 
-When you have fully set up the project, it's your time to develop your entire solution. Take a look at the main.py file to see how the back end works and build on this for your solution, serving your front end web app!
+When you have fully set up the project, it's time to start develop your entire solution. Take a look at the main.py file to see how the back end works and serves your front end web app. Build on this for your solution.
 
-For those curious about Data Science, jupyter notebooks (.ipynb or iPython Notebook files) are an essential part of experimentation. You can test out different AI/ML models on different data much quicker using them, compared to using regular .py files. Feel free to experiment with different methods of topic analysis in TopicAnalyser.ipynb, or try using different data. 
-When you're finished experimenting, consider making your experimented code available in TopicAnalyser.py, and make TopicAnalyser.py part of your API in main.py.
-(NOTE: this is only one optional path you can take with your project)
+Remember to develop and test everything locally first before making deployments to App Engine!
+
+Also have a look at TopicAnalyser.py as an example of functionality that can become part of the back end API, feel free to experiment and play around with it to get used to the flow of development.
+
+#### Using Jupyter Notebooks
+For those curious about Data Science, Jupyter notebooks (.ipynb or iPython Notebook files) are an essential part of experimentation. You can perform tests e.g.different AI/ML models on different data, much quicker using them compared to using regular .py files.
+
+So consider experimenting using notebooks and moving code into the .py files that form your back end. You can create notebooks in the environment setup that you would create for the [front end](../frontend_notebook/README.md)
