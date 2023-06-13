@@ -72,7 +72,7 @@ After creating the virtual environment, you must 'activate' it to access it. If 
 
 
 #### Creating a Virtual Environment
-There are many different libraries that help create a virtual environment for you. The following steps describe the installation and setup of an environment using the 'Anaconda' library, although you are free to choose whichever environments suits you.
+There are many different libraries that help create a virtual environment for you. The following steps describe the installation and setup of an environment using the 'Anaconda' library, although you are free to choose whichever environment suits you.
 
 1. Follow Anaconda installation steps for your system [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html#installing-conda-on-a-system-that-has-other-python-installations-or-packages)
 
