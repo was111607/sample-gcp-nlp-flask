@@ -1,9 +1,8 @@
 # Flask + Google NLP API + Datastore (The Backend)
-This sample demonstrates how to use the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/) inside a Flask application, all running on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
+This README demonstrates how to setup a sample back end application that uses the [Google Cloud Natural Language API](https://cloud.google.com/natural-language) and [Google Cloud Datastore](https://cloud.google.com/datastore/), which can be deployed to run on [Google App Engine Flexible Environment](https://cloud.google.com/appengine).
 
-It will create a simple Python flask application that serves some REST endpoints. The application will communicate with GCP's 
-NLP API for analysis and Datastore for a NoSQL database. The endpoints created will later be used by the Notebook 
-frontend.
+The application is a Python flask API that serves some REST endpoints. The application communicates with GCP's 
+NLP API for analysis and Datastore for a NoSQL database. The endpoints created will be accessed by the front end web app running in a Notebook.
 
 You can develop your application locally using the Google Cloud CLI (gcloud).
 
