@@ -154,7 +154,7 @@ When the above steps have passed, you have now fully completed configuring the b
 
 If this is your first time setting up the whole project, please move onto performing the front end [configuration steps](../frontend_notebook/README.md).
 
-When you have fully set up the project, it's time to start develop your entire solution. Take a look at the main.py file to see how the back end works and serves your front end web app. Build on this for your solution.
+When you have fully set up the project, it's time to start developing your entire solution. Take a look at the main.py file to see how the back end functions how it serves your front end web app. Build on this for your solution.
 
 Remember to develop and test everything locally first before making deployments to App Engine!
 
