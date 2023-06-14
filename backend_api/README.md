@@ -132,7 +132,7 @@ conda deactivate
 
 
 ## App Engine
-Google App Engine is used to host a 'live' version of your back end, accessible publicly through a URL. Unlike your local development environment, which through exploring solutions and testing you will run into bugs and other issues, code that is deployed to App Engine should be bug-free and represent a 'complete' state of your code.
+Google App Engine is used to host a 'live' version of your back end, accessible publicly through a URL. Code that is deployed to App Engine should be bug-free and represent a 'complete' state of your code. On the other hand, in your local development environment, it is expected that you will run into bugs and other issues as you explore and test solutions.
 
 
 ### Deployment
