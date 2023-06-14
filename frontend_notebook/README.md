@@ -21,15 +21,15 @@ The following steps configures you to be able to run your front end app through 
 
 ### Opening the Notebook Instance
 1. Search for "Vertex AI Workbench" in GCP (or click the image below), you should arrive on a page that looks something like this:
-    [![vertex-ai-view][vertex_img]][jupyter_link]
+    [![vertex-ai-view][vertex_img]][vertex_ai_workbench]
 
     [vertex_img]: ../docs/vertex-ai-view.png
-    [jupyter_link]: https://console.cloud.google.com/vertex-ai/workbench/list
+    [vertex_ai_workbench]: https://console.cloud.google.com/vertex-ai/workbench/list
 
 
 1. **Only perform when you have been given the go ahead**. If the notebook is currently stopped, click 'Open JupyterLab'. The notebook instance will be created and a JupyterLab window will open in a new tab.
 
-    ![Open Jupyter Notebooks][jupyter_img]
+    ![Open JupyterLab][jupyter_img]
 
     [jupyter_img]: ../docs/new-jupyterlab-view.png
 
@@ -75,3 +75,20 @@ As your code inside JupyterLab is connected to your repository, all usual Git ac
 * Working on different branches
 * Committing code changes
 * Fetching code changes to update code in JupyterLab (i.e. new commits from local development)
+
+
+## Management
+Managing the instance hosting JupyterLab (and your notebooks) for this project, stopping the instance when not in use and starting it, can be performed through the GCP Vertex AI [dashboard](https://console.cloud.google.com/vertex-ai/workbench/list) or gcloud. These operations may take several minutes to complete. 
+
+
+### Start the Notebook Instance
+Click "Start" or "Open JupyterLab" over the notebook in the dashboard or run the following command:
+```
+gcloud notebooks instances start nlp-notebook-instance --location=$(gcloud compute instances list --filter=nlp-notebook-instance --format="value(ZONE)") --project=$(gcloud config get-value core/project)
+```
+
+### Stop the Notebook Instance
+Click "Stop" over the notebook in the dashboard or run the following command:
+```
+gcloud notebooks instances start nlp-notebook-instance --location=$(gcloud compute instances list --filter=nlp-notebook-instance --format="value(ZONE)") --project=$(gcloud config get-value core/project)
+```
