@@ -156,7 +156,7 @@ Visit `https://[YOUR_PROJECT_ID].appspot.com` or run the following command to vi
 gcloud app browse
 ```
 
-Both ways are setup to track the most recent running version so you can rely on them to access the most recent deployment that you make.
+Both ways are set up to track the most recent running version so you can rely on them to access the most recent deployment that you make.
 
 
 ### Final Checks
