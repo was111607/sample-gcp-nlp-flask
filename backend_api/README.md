@@ -131,17 +131,32 @@ conda deactivate
 ```
 
 
-## Deploying to App Engine
-Google App Engine is used to host a 'live' version of your back end, accessible publicly through a URL. Unlike your local development environment, which through exploring solutions and testing you will run into bugs and other issues, code that is deployed to App Engine should be bug-free and represent a complete state of your code.
+## App Engine
+Google App Engine is used to host a 'live' version of your back end, accessible publicly through a URL. Unlike your local development environment, which through exploring solutions and testing you will run into bugs and other issues, code that is deployed to App Engine should be bug-free and represent a 'complete' state of your code.
 
+
+### Deployment
 Deploy your application to App Engine with the following command. Please note that this may take several minutes.
 ```
 gcloud app deploy
 ```
 
-Visit `https://[YOUR_PROJECT_ID].appspot.com` to view your deployed application.
 
-You can continue to make new versions of the application and deploy them with the above command.
+### Management
+You can manage your deployments through the GCP App Engine [dashboard](https://console.cloud.google.com/appengine/versions).
+
+Every deployment that you make automatically produces and runs the back end as a new 'version' of the App Engine environment. You can start and stop versions and roll back to old versions if required.
+
+![App Engine Versions](../docs/app-engine-versions.png)
+
+
+### Viewing
+Visit `https://[YOUR_PROJECT_ID].appspot.com` or run the following command to view your deployed application:
+```
+gcloud app browse
+```
+
+Both ways are setup to track the most recent running version so you can rely on them to access the most recent deployment that you make.
 
 
 ### Final Checks
