@@ -2,6 +2,11 @@
 
 Welcome! This is the stub project for building your Natural Language Analysis Platform using GCP.
 
+## Recommendations
+* We strongly recommend that you use a Bash terminal to install Google Cloud SDK (for running the back end) and run terminal commands. This project has primarily been tested using the Bash terminal thus there is no guarantee that other terminals will work:
+  * Linux and macOS terminals are bash-based and should be fine
+  * For Windows, it is strongly recommended to install and use Git Bash instead of the terminal provided with Windows
+
 ## Prerequisites
 1. Ability in or desire to learn Python!  
 1.1 Python version: 3.10
@@ -21,7 +26,7 @@ The goal is to set up a platform to analyse text data using GCP Services.
 ### The Back End
 The back end is a REST endpoint service using the Flask framework in Python. This will be deployed in GCP App Engine.
 This component will talk to GCP's [Natural Language API](https://cloud.google.com/natural-language) service to analyse 
-our text, and use GCP Datastore as a NoSQL database for storage. 
+our text, and use GCP Datastore as a NoSQL database for storage.
 
 The code for the backend is in the **/backend_api** folder.
 
