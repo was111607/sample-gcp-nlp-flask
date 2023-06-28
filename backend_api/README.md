@@ -60,8 +60,7 @@ Running the back end (either locally or when deployed) requires using App Engine
 
 1. Get the App Engine service account key and save into key.json. **Keep key.json a secret. You should never commit this file ever**:
     ```
-    gcloud iam service-accounts keys create key.json --iam-account \
-    ${PROJECT_ID}@appspot.gserviceaccount.com
+    gcloud iam service-accounts keys create key.json --iam-account ${PROJECT_ID}@appspot.gserviceaccount.com
     ```
 
 
