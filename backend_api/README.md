@@ -43,14 +43,8 @@ After you have successfully set up gcloud, you **MUST** obtain a Service Account
 Running the back end (either locally or when deployed) requires using App Engine service account assigned to your GCP project. You need to get and store the account key:
 
 1. Get the project ID and save it into an environment variable:
-    1. macOS/UNIX:
     ```
     export PROJECT_ID=$(gcloud config get-value core/project)
-    ```
-
-    2. Windows:
-    ```
-    set PROJECT_ID=$(gcloud config get-value core/project)
     ```
 
 1. If you are not already, make sure that you are in the "backend_api" folder
