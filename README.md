@@ -3,9 +3,9 @@
 Welcome! This is the stub project for building your Natural Language Analysis Platform using GCP.
 
 ## Recommendations
-* We strongly recommend that you use a Bash terminal to install Google Cloud SDK (for running the back end) and run terminal commands. This project has primarily been tested using the Bash terminal thus there is no guarantee that other terminals will work:
-  * Linux and macOS terminals are bash-based and should be fine
-  * For Windows, it is strongly recommended to install and use Git Bash instead of the terminal provided with Windows
+* We strongly recommend that you use a Bash terminal to install Google Cloud SDK (for running the back end) and run terminal commands. This project has been tested using the Bash terminal thus all terminal commands in the component READMEs are based in Bash. **There is no guarantee that performing these commands in a non-bash terminal will work**:
+  * Linux and macOS terminals are Bash-based and will be fine
+  * For Windows, it is strongly recommended to install and use [Git Bash](https://gitforwindows.org/) instead
 
 ## Prerequisites
 1. Ability in or desire to learn Python!  
